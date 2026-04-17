@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Script — The AI Syndicate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #000000;
+      --deep:   #080808;
+      --card:   #0f0f0f;
+      --border: #1c1c1c;
+      --gold:   #c9a84c;
+      --gold2:  #e8c97a;
+      --text:   #c4bfb4;
+      --muted:  #555050;
+      --white:  #ffffff;
+      --green:  #3a7a4a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold2);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .back-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--gold); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+
+    .page-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.25rem auto;
+    }
+
+    /* ── LAYOUT ── */
+    .scripts-layout {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* ── SCRIPT BLOCK ── */
+    .script-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .script-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .script-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .script-label h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .script-label span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .trigger-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .script-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .script-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      background: rgba(201,168,76,0.04);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .script-card-header span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover { background: rgba(201,168,76,0.1); }
+    .copy-btn.copied { color: #3da85a; border-color: #3da85a; }
+
+    .script-body {
+      padding: 1.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      line-height: 1.8;
+      color: #8a8480;
+      white-space: pre-wrap;
+    }
+
+    /* annotation style */
+    .annotation {
+      color: rgba(201,168,76,0.45);
+      font-style: italic;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* speaker marker */
+    .you { color: #c4bfb4; }
+    .them { color: var(--muted); }
+
+    .note {
+      background: rgba(201,168,76,0.05);
+      border-left: 2px solid rgba(201,168,76,0.3);
+      padding: 1rem 1.25rem;
+      border-radius: 0 4px 4px 0;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .note strong { color: var(--gold2); }
+
+    /* ── OBJECTIONS ── */
+    .objections-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.06);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .objection {
+      background: var(--card);
+      padding: 1.5rem;
+    }
+
+    .objection-q {
+      font-weight: 700;
+      color: #6b6560;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .objection-q::before { content: '"'; }
+    .objection-q::after  { content: '"'; }
+
+    .objection-a {
+      color: #8a8480;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(201,168,76,0.08);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">The AI Syndicate</a>
+  <a href="index.html" class="back-link">← Back to Challenge</a>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">Internal Resource &nbsp;·&nbsp; Manny's Syndicate</p>
+  <h1>The Sales Scripts</h1>
+  <div class="gold-line"></div>
+  <p>Every script is built around the psychological triggers. Use them for cold DMs, emails, discovery calls, and closing. Swap in your pillar where noted.</p>
+</div>
+
+<div class="scripts-layout">
+
+  <!-- 1. COLD DM / EMAIL -->
+  <div class="script-section">
+    <div class="script-label">
+      <div class="script-num">1</div>
+      <div>
+        <h2>Cold DM / Cold Email</h2>
+        <span>First touch outreach</span>
+      </div>
+    </div>
+    <div class="trigger-tags">
+      <span class="tag">Reciprocity</span>
+      <span class="tag">Curiosity</span>
+      <span class="tag">Specificity</span>
+    </div>
+    <div class="script-card">
+      <div class="script-card-header">
+        <span>Template &nbsp;·&nbsp; Cold Outreach</span>
+        <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+      </div>
+      <div class="script-body" data-script>Hey [First Name],
+
+Noticed you're doing [specific thing you genuinely observed about them].
+Most people in your position are leaving money on the table because
+[specific pain point — e.g., "they're creating content manually when
+AI can generate a week of it in 90 minutes"].
+
+I put together a quick [3-step checklist / 5-minute Loom / short doc]
+that shows exactly how to fix that — no pitch, just the thing itself.
+
+Want me to send it over?
+
+— [Your name]</div>
+    </div>
+    <div class="note">
+      <strong>Why it works:</strong> Opens with proof you did your homework (specificity = trust). Leads with value before asking for anything (reciprocity). Ends with a micro-commitment question — a small yes that primes them for a bigger yes. Keep it under 80 words.
+    </div>
+  </div>
+
+  <!-- 2. FOLLOW-UP -->
+  <div class="script-section">
+    <div class="script-label">
+      <div class="script-num">2</div>
+      <div>
+        <h2>Follow-Up Message</h2>
+        <span>For no-replies after 2–3 days</span>
+      </div>
+    </div>
+    <div class="trigger-tags">
+      <span class="tag">Scarcity</span>
+      <span class="tag">Social Proof</span>
+    </div>
+    <div class="script-card">
+      <div class="script-card-header">
+        <span>Template &nbsp;·&nbsp; Follow-Up</span>
+        <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+      </div>
+      <div class="script-body" data-script>Hey [First Name] — just bumping this up.
+
+Sent this to a few people in [their niche/industry] this week.
+[Name] used it to [specific result — e.g., "cut their content
+workflow from 6 hours to 45 minutes"]. Wanted to make sure
+you didn't miss it before I close the list.
+
+Still happy to send it over if useful.
+
+— [Your name]</div>
+    </div>
+    <div class="note">
+      <strong>Why it works:</strong> Social proof from a named peer in their niche (not a generic "my clients"). Artificial urgency with "close the list." One line of empathy — you're not pestering, you're providing.
+    </div>
+  </div>
+
+  <!-- 3. DISCOVERY CALL OPENER -->
+  <div class="script-section">
+    <div class="script-label">
+      <div class="script-num">3</div>
+      <div>
+        <h2>Discovery Call Opener</h2>
+        <span>First 3 minutes of the call</span>
+      </div>
+    </div>
+    <div class="trigger-tags">
+      <span class="tag">Authority</span>
+      <span class="tag">Commitment</span>
+      <span class="tag">Liking</span>
+    </div>
+    <div class="script-card">
+      <div class="script-card-header">
+        <span>Script &nbsp;·&nbsp; Call Opener</span>
+        <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+      </div>
+      <div class="script-body" data-script>YOU:
+"Appreciate you taking the time — I know your calendar's probably
+packed. Quick thing before we dive in: I want to make sure this
+call is actually valuable for you either way, so I'm just going
+to ask some honest questions, and if I don't think I can genuinely
+help, I'll tell you straight. Sound good?"
+
+[They say yes — this is commitment #1]
+
+YOU:
+"Perfect. So tell me — what made you say yes to this call today?
+What's the thing that's actually keeping you stuck right now?"
+
+[Let them talk. Don't interrupt. Take notes.]
+
+YOU (after they finish):
+"Got it. How long has that been the situation?"
+
+[They answer]
+
+YOU:
+"And what happens to [their business/income/goal] if that doesn't
+change in the next 6 months?"
+
+[This is the pain amplification question. Let it land. Silence is okay.]</div>
+    </div>
+    <div class="note">
+      <strong>Why it works:</strong> The permission frame at the start positions you as the opposite of a pushy salesperson (liking + trust). The commitment question locks in reciprocal engagement. Pain amplification questions make the cost of inaction real — which is the only thing that moves someone off the fence.
+    </div>
+  </div>
+
+  <!-- 4. THE CLOSE -->
+  <div class="script-section">
+    <div class="script-label">
+      <div class="script-num">4</div>
+      <div>
+        <h2>The Close</h2>
+        <span>After discovery, before they think it over</span>
+      </div>
+    </div>
+    <div class="trigger-tags">
+      <span class="tag">Urgency</span>
+      <span class="tag">Commitment</span>
+      <span class="tag">Authority</span>
+    </div>
+    <div class="script-card">
+      <div class="script-card-header">
+        <span>Script &nbsp;·&nbsp; Closing</span>
+        <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+      </div>
+      <div class="script-body" data-script>YOU (after presenting your offer):
+"Based on everything you've told me, here's what I'd do for you:
+
+[Pillar-specific offer — e.g., 'I'll build you a complete
+automation workflow that handles X, Y, and Z — so you never
+have to touch that manually again.']
+
+The investment is [price]. I typically work with [2–3] people
+at a time so I can actually deliver results instead of just
+taking money. One of those spots is open right now.
+
+Does this feel like the right move for you?"
+
+[Wait. Do not fill the silence.]
+
+IF HESITATION:
+"What would need to be true for this to feel like a no-brainer?"
+
+[Listen. Address that specific thing only.]
+
+IF THEY SAY YES:
+"Perfect. I'll send over the agreement and onboarding doc tonight.
+What email should I use?"</div>
+    </div>
+    <div class="note">
+      <strong>Why it works:</strong> "I typically work with 2–3 people" is genuine scarcity framing — not fake. The silence after "does this feel right" is intentional. The "what would need to be true" question surfaces the real objection instead of guessing at it.
+    </div>
+  </div>
+
+  <!-- 5. OBJECTION HANDLERS -->
+  <div class="script-section">
+    <div class="script-label">
+      <div class="script-num">5</div>
+      <div>
+        <h2>Objection Handlers</h2>
+        <span>The four you'll hear on every call</span>
+      </div>
+    </div>
+
+    <div class="objections-grid">
+
+      <div class="objection">
+        <p class="objection-q">I need to think about it.</p>
+        <div class="objection-a">"Totally respect that. Out of curiosity — what specifically do you need to think through? Is it the investment, the timing, or something about whether this will actually work for your situation?"
+
+[They'll tell you the real objection. Handle that one, not the decoy.]</div>
+      </div>
+
+      <div class="objection">
+        <p class="objection-q">It's too expensive.</p>
+        <div class="objection-a">"I hear you. Let me ask — if this gets you [specific result they said they wanted], what's that worth to your business over the next 12 months?
+
+[Pause]
+
+If the number you're thinking is more than [your price], then the question isn't whether it's expensive — it's whether you believe it works. So let's talk about that."</div>
+      </div>
+
+      <div class="objection">
+        <p class="objection-q">I've tried things like this before and they didn't work.</p>
+        <div class="objection-a">"That makes complete sense — most of what's out there is tactics without the underlying psychology. Can I ask, when you tried [previous thing], what was the part that failed? Was it the strategy, the execution, or did you just not have enough time to commit?"
+
+[Listen, then show specifically how your approach addresses that exact failure point.]</div>
+      </div>
+
+      <div class="objection">
+        <p class="objection-q">I need to talk to my partner / spouse first.</p>
+        <div class="objection-a">"Of course. What I'd suggest is — would it be easier if we did a quick 15-minute call with both of you so they can ask any questions directly? That way you're not playing telephone and nothing gets lost.
+
+If that doesn't work, what would you need from me to make it easier to walk them through it?"</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 6. SHORT-FORM CONTENT HOOK SCRIPTS -->
+  <div class="script-section">
+    <div class="script-label">
+      <div class="script-num">6</div>
+      <div>
+        <h2>Content Hook Scripts</h2>
+        <span>Muse Media — first 3 seconds of video / opening line of post</span>
+      </div>
+    </div>
+    <div class="trigger-tags">
+      <span class="tag">Curiosity</span>
+      <span class="tag">Pattern Interrupt</span>
+      <span class="tag">Identity</span>
+    </div>
+    <div class="script-card">
+      <div class="script-card-header">
+        <span>5 Hook Templates &nbsp;·&nbsp; Short-Form</span>
+        <button class="copy-btn" onclick="copyScript(this)">Copy</button>
+      </div>
+      <div class="script-body" data-script>// CURIOSITY GAP
+"Nobody talks about this because the people who know it
+are too busy making money from it."
+
+// IDENTITY ATTACK
+"If you've been online for more than a year and still
+haven't made your first $1k — this is why."
+
+// SPECIFICITY HOOK
+"I made $[amount] in [timeframe] using [specific method].
+Here's every step, nothing held back."
+
+// PATTERN INTERRUPT
+"Stop posting content. Do this instead."
+
+// AUTHORITY HOOK
+"I've helped [X] people start earning online. The ones
+who failed all made the same 3 mistakes."</div>
+    </div>
+    <div class="note">
+      <strong>Rule:</strong> Every hook must do one of three things — create a gap they need to close, speak to an identity they hold or want, or make a specific claim they don't believe until they watch. If your hook does none of these, rewrite it.
+    </div>
+  </div>
+
+</div><!-- end scripts-layout -->
+
+<footer>
+  <p><a href="index.html">← The AI Syndicate</a> &nbsp;·&nbsp; Internal Sales Resource &nbsp;·&nbsp; 14 Days to Freedom Challenge &nbsp;·&nbsp; © 2026</p>
+</footer>
+
+<script>
+  function copyScript(btn) {
+    const card = btn.closest('.script-card');
+    const body = card.querySelector('[data-script]');
+    navigator.clipboard.writeText(body.innerText).then(() => {
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
