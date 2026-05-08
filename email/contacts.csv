@@ -1,0 +1,11 @@
+owner_name,business_name,business_type,email,city,sent,replied,unsubscribed
+John Smith,Smith's Auto Repair,Auto Repair Shop,john@smithsauto.example.com,Dallas,false,false,false
+Maria Garcia,Garcia Dental Care,Dental Practice,maria@garciadental.example.com,Dallas,false,false,false
+Robert Johnson,Johnson Real Estate,Real Estate Agency,robert@johnsonrealty.example.com,Dallas,false,false,false
+Lisa Chen,Chen's Kitchen,Restaurant,lisa@chenskitchen.example.com,Dallas,false,false,false
+Mike Williams,Williams Law Group,Law Firm,mike@williamslawgroup.example.com,Dallas,false,false,false
+Sarah Davis,Bella Salon & Spa,Salon & Spa,sarah@bellasalon.example.com,Dallas,false,false,false
+Tom Martinez,FitLife Gym,Gym & Fitness Studio,tom@fitlifegym.example.com,Dallas,false,false,false
+Jennifer Brown,Brown's Bakery,Retail / Bakery,jennifer@brownsbakery.example.com,Dallas,false,false,false
+David Wilson,Wilson Contractors,General Contractor,david@wilsoncontractors.example.com,Dallas,false,false,false
+Amanda Taylor,Taylor Medical Clinic,Medical Clinic,amanda@taylormedical.example.com,Dallas,false,false,false

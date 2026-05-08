@@ -1,0 +1,16 @@
+{
+  "name": "echorev-email-campaign",
+  "version": "1.0.0",
+  "description": "EchoRev AI Syndicate — Local business outreach email campaign",
+  "main": "campaign.js",
+  "scripts": {
+    "outreach": "node campaign.js outreach",
+    "followup": "node campaign.js followup",
+    "stats": "node campaign.js stats",
+    "preview": "node campaign.js preview 0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.13"
+  }
+}

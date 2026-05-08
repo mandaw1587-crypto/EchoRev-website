@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoRev AI — Built for {{BUSINESS_TYPE}} Like {{BUSINESS_NAME}}</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f0f4f8; color: #1a202c; }
+    .wrapper { max-width: 600px; margin: 32px auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); padding: 40px 40px 36px; text-align: center; }
+    .logo { font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+    .logo span { color: #3b82f6; }
+    .tagline { font-size: 13px; color: #94a3b8; margin-top: 6px; }
+    .body { padding: 40px; }
+    .greeting { font-size: 16px; color: #374151; margin-bottom: 20px; }
+    .headline { font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 16px; line-height: 1.35; }
+    .headline span { color: #3b82f6; }
+    p { font-size: 15px; color: #4b5563; line-height: 1.7; margin-bottom: 16px; }
+    .highlight-box { background: #f0f7ff; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box h3 { font-size: 14px; font-weight: 700; color: #1e40af; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+    .benefit { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 14px; color: #374151; }
+    .benefit-icon { color: #3b82f6; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .cta-section { text-align: center; margin: 36px 0 8px; }
+    .cta-btn { display: inline-block; background: linear-gradient(135deg, #3b82f6, #6366f1); color: #ffffff; font-size: 16px; font-weight: 700; padding: 16px 40px; border-radius: 8px; text-decoration: none; letter-spacing: 0.3px; }
+    .cta-sub { font-size: 12px; color: #9ca3af; margin-top: 10px; }
+    .results { display: flex; gap: 0; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; margin: 28px 0; }
+    .result-item { flex: 1; padding: 18px 12px; text-align: center; border-right: 1px solid #e5e7eb; }
+    .result-item:last-child { border-right: none; }
+    .result-num { font-size: 26px; font-weight: 800; color: #3b82f6; }
+    .result-label { font-size: 11px; color: #6b7280; margin-top: 4px; }
+    .ps { background: #fafafa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px 22px; font-size: 14px; color: #6b7280; font-style: italic; margin-top: 8px; }
+    .footer { background: #f8fafc; border-top: 1px solid #e5e7eb; padding: 24px 40px; text-align: center; }
+    .footer p { font-size: 12px; color: #9ca3af; margin-bottom: 4px; }
+    .footer a { color: #6b7280; text-decoration: underline; }
+    .divider { height: 1px; background: #e5e7eb; margin: 24px 0; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="logo">Echo<span>Rev</span></div>
+      <div class="tagline">AI Solutions for Local Business</div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <p class="greeting">Hi {{OWNER_NAME}},</p>
+
+      <h2 class="headline">
+        Most {{BUSINESS_TYPE}}s in {{CITY}} are leaving money on the table —
+        <span>AI can change that for {{BUSINESS_NAME}}.</span>
+      </h2>
+
+      <p>
+        I came across {{BUSINESS_NAME}} and noticed you've built something impressive.
+        But I also noticed something that most busy business owners miss: the gap between
+        the customers you <em>could</em> be capturing and the ones you actually are.
+      </p>
+
+      <p>
+        We're EchoRev — we deploy AI systems specifically for local businesses.
+        Not corporate tech. Not complicated software. Just tools that quietly work
+        in the background to bring you more customers and free up your time.
+      </p>
+
+      <!-- RESULTS BAR -->
+      <div class="results">
+        <div class="result-item">
+          <div class="result-num">3x</div>
+          <div class="result-label">More Leads on Average</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">24/7</div>
+          <div class="result-label">AI Works While You Sleep</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">14 Days</div>
+          <div class="result-label">To Go Live</div>
+        </div>
+      </div>
+
+      <!-- HIGHLIGHT BOX -->
+      <div class="highlight-box">
+        <h3>What we typically build for {{BUSINESS_TYPE}}s</h3>
+        <div class="benefit">
+          <span class="benefit-icon">🤖</span>
+          <span><strong>AI Chatbot &amp; Receptionist</strong> — Answer questions and book appointments 24/7, even when you're closed.</span>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">⭐</span>
+          <span><strong>Review Generation</strong> — Automatically ask happy customers for Google reviews. More reviews = more business.</span>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">📧</span>
+          <span><strong>Follow-Up Automation</strong> — Every lead gets followed up automatically. No more prospects slipping through the cracks.</span>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">📊</span>
+          <span><strong>AI Marketing Campaigns</strong> — Smart email &amp; SMS campaigns that bring back past customers.</span>
+        </div>
+      </div>
+
+      <p>
+        The best part? We handle everything — setup, integration, and ongoing optimization.
+        Most of our clients spend less than an hour getting started and start seeing
+        results within the first two weeks.
+      </p>
+
+      <p>
+        I'd love to do a quick 30-minute call to show you exactly what we'd build
+        for {{BUSINESS_NAME}} — no cost, no obligation, and no fluff.
+      </p>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <a href="{{BOOKING_LINK}}" class="cta-btn">Book Your Free Strategy Call →</a>
+        <p class="cta-sub">Takes 30 minutes. We'll show you a custom plan for {{BUSINESS_NAME}}.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <p style="font-size:14px; color:#6b7280;">
+        Or just reply to this email — I read every response personally and typically
+        reply within the hour during business hours.
+      </p>
+
+      <p>
+        Looking forward to connecting,<br />
+        <strong>{{SENDER_NAME}}</strong><br />
+        {{SENDER_TITLE}}<br />
+        EchoRev AI Syndicate<br />
+        <a href="{{WEBSITE_URL}}" style="color:#3b82f6;">{{WEBSITE_URL}}</a>
+      </p>
+
+      <!-- PS -->
+      <div class="ps">
+        P.S. — We only take on a limited number of new clients each month to ensure
+        quality results. If you're curious whether we'd be a good fit for
+        {{BUSINESS_NAME}}, this week is a great time to reach out.
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>EchoRev AI Syndicate &nbsp;|&nbsp; {{SENDER_EMAIL}}</p>
+      <p>
+        You're receiving this because we believe we can genuinely help your business.
+        <br />
+        <a href="{{UNSUBSCRIBE_LINK}}">Unsubscribe</a> &nbsp;|&nbsp;
+        <a href="{{WEBSITE_URL}}/privacy">Privacy Policy</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
