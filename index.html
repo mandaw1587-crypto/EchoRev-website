@@ -10,95 +10,645 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --black:#000; --deep:#080808; --card:#0f0f0f; --card2:#141414; --border:#1e1e1e; --gold:#c9a84c; --gold2:#e8c97a; --text:#c4bfb4; --muted:#5a5550; --white:#fff; }
+
+    :root {
+      --black:  #000000;
+      --deep:   #080808;
+      --card:   #0f0f0f;
+      --card2:  #141414;
+      --border: #1e1e1e;
+      --gold:   #c9a84c;
+      --gold2:  #e8c97a;
+      --text:   #c4bfb4;
+      --muted:  #5a5550;
+      --white:  #ffffff;
+    }
+
     html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
-    .gold-line { width: 50px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 1.1rem auto; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(0,0,0,0.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(201,168,76,0.12); }
-    .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .gold-line {
+      width: 50px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.1rem auto;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(0,0,0,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+
     .nav-logo svg { width: 32px; height: 32px; }
-    .nav-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--gold2); letter-spacing: 0.06em; text-transform: uppercase; }
-    .nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--black); text-decoration: none; padding: 0.55rem 1.3rem; border-radius: 3px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transition: opacity 0.2s; }
+
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--gold2); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--black);
+      text-decoration: none;
+      padding: 0.55rem 1.3rem;
+      border-radius: 3px;
+      font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: opacity 0.2s;
+    }
+
     .nav-cta:hover { opacity: 0.85; }
-    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 1.5rem 5rem; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.13) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 15% 90%, rgba(201,168,76,0.04) 0%, transparent 55%), radial-gradient(ellipse 40% 30% at 85% 90%, rgba(201,168,76,0.04) 0%, transparent 55%); pointer-events: none; }
-    .hero-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; position: relative; z-index: 1; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 900; line-height: 1.05; color: var(--white); max-width: 820px; margin-bottom: 0.5rem; position: relative; z-index: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.13) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 15% 90%, rgba(201,168,76,0.04) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 85% 90%, rgba(201,168,76,0.04) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+      position: relative; z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      font-weight: 900; line-height: 1.05;
+      color: var(--white); max-width: 820px;
+      margin-bottom: 0.5rem;
+      position: relative; z-index: 1;
+    }
+
     .hero h1 .gold { color: var(--gold2); }
-    .hero-sub { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2vw, 1.35rem); color: var(--gold); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.75rem; position: relative; z-index: 1; }
-    .hero-desc { font-size: clamp(0.95rem, 1.8vw, 1.05rem); color: var(--muted); max-width: 560px; line-height: 1.8; margin-bottom: 2.5rem; position: relative; z-index: 1; }
-    .price-tag { display: inline-flex; align-items: baseline; gap: 0.4rem; background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; padding: 0.75rem 1.5rem; margin-bottom: 2.5rem; position: relative; z-index: 1; }
-    .price-amount { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold2); line-height: 1; }
-    .price-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem; position: relative; z-index: 1; }
-    .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--black); padding: 1rem 2rem; border-radius: 3px; border: none; font-size: 0.9rem; font-weight: 800; font-family: inherit; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: opacity 0.2s, transform 0.15s; display: inline-block; }
+
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      color: var(--gold); letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 1.75rem;
+      position: relative; z-index: 1;
+    }
+
+    .hero-desc {
+      font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+      color: var(--muted); max-width: 560px;
+      line-height: 1.8; margin-bottom: 2.5rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ── PRICE TAG ── */
+    .price-tag {
+      display: inline-flex; align-items: baseline; gap: 0.4rem;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 4px; padding: 0.75rem 1.5rem;
+      margin-bottom: 2.5rem;
+      position: relative; z-index: 1;
+    }
+
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 900; color: var(--gold2);
+      line-height: 1;
+    }
+
+    .price-label {
+      font-size: 0.8rem; color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* ── CTA BUTTONS ── */
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 1.5rem;
+      position: relative; z-index: 1;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--black);
+      padding: 1rem 2rem;
+      border-radius: 3px; border: none;
+      font-size: 0.9rem; font-weight: 800;
+      font-family: inherit;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
     .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-secondary { background: transparent; color: var(--gold2); padding: 1rem 2rem; border-radius: 3px; border: 1px solid rgba(201,168,76,0.35); font-size: 0.9rem; font-weight: 700; font-family: inherit; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s; display: inline-block; }
-    .btn-secondary:hover { background: rgba(201,168,76,0.07); }
-    .hero-note { font-size: 0.75rem; color: var(--muted); position: relative; z-index: 1; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold2);
+      padding: 1rem 2rem;
+      border-radius: 3px;
+      border: 1px solid rgba(201,168,76,0.35);
+      font-size: 0.9rem; font-weight: 700;
+      font-family: inherit;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover { background: rgba(201,168,76,0.07); border-color: var(--gold); }
+
+    .hero-note {
+      font-size: 0.75rem; color: var(--muted);
+      position: relative; z-index: 1;
+    }
+
+    /* ── SECTION SHARED ── */
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1080px; margin: 0 auto; }
-    .section-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 0.6rem; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 900; color: var(--white); text-align: center; line-height: 1.15; margin-bottom: 1rem; }
-    .section-desc { color: var(--muted); font-size: 0.975rem; max-width: 540px; margin: 0 auto 3rem; text-align: center; line-height: 1.75; }
+
+    .section-eyebrow {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); text-align: center; margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900; color: var(--white);
+      text-align: center; line-height: 1.15; margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--muted); font-size: 0.975rem;
+      max-width: 540px; margin: 0 auto 3rem;
+      text-align: center; line-height: 1.75;
+    }
+
+    /* ── WHAT YOU GET ── */
     .services { background: var(--deep); }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.07); border-radius: 6px; overflow: hidden; }
-    .service { background: var(--card); padding: 2.25rem 1.75rem; position: relative; transition: background 0.2s; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1px;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.07);
+      border-radius: 6px; overflow: hidden;
+    }
+
+    .service {
+      background: var(--card);
+      padding: 2.25rem 1.75rem;
+      position: relative; transition: background 0.2s;
+    }
+
     .service:hover { background: var(--card2); }
-    .service::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity 0.2s; }
+
+    .service::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.2s;
+    }
+
     .service:hover::before { opacity: 1; }
+
     .service-icon { font-size: 1.75rem; display: block; margin-bottom: 1rem; }
-    .service h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.5rem; }
+
+    .service h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--gold2); margin-bottom: 0.5rem;
+    }
+
     .service p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; }
-    .service .result { display: inline-block; margin-top: 1rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.2); padding: 0.25rem 0.65rem; border-radius: 2px; }
+
+    .service .result {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 0.25rem 0.65rem; border-radius: 2px;
+    }
+
+    /* ── FREE KIT ── */
     .kit-section { background: var(--black); }
-    .kit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .kit-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 2.25rem; position: relative; overflow: hidden; }
-    .kit-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent); }
-    .kit-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.2); padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 1rem; }
-    .kit-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+
+    .kit-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem; margin-top: 0;
+    }
+
+    .kit-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px; padding: 2.25rem;
+      position: relative; overflow: hidden;
+    }
+
+    .kit-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent);
+    }
+
+    .kit-badge {
+      display: inline-block;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 0.2rem 0.6rem; border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .kit-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+
     .kit-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; }
-    .kit-card ul { list-style: none; margin-top: 1rem; }
-    .kit-card ul li { font-size: 0.85rem; color: #5a5550; padding: 0.3rem 0 0.3rem 1.1rem; position: relative; }
-    .kit-card ul li::before { content: '\2726'; position: absolute; left: 0; color: var(--gold); font-size: 0.6rem; top: 0.45rem; }
+
+    .kit-card ul {
+      list-style: none; margin-top: 1rem;
+    }
+
+    .kit-card ul li {
+      font-size: 0.85rem; color: #5a5550;
+      padding: 0.3rem 0 0.3rem 1.1rem;
+      position: relative;
+    }
+
+    .kit-card ul li::before {
+      content: '✦'; position: absolute; left: 0;
+      color: var(--gold); font-size: 0.6rem; top: 0.45rem;
+    }
+
+    /* ── LEAD CAPTURE FORM ── */
     .lead-section { background: var(--deep); }
-    .lead-box { max-width: 640px; margin: 0 auto; background: var(--card); border: 1px solid rgba(201,168,76,0.18); border-radius: 8px; padding: 3.5rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
-    .lead-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
-    .lead-box h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 900; color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; position: relative; }
-    .lead-box p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; position: relative; line-height: 1.7; }
-    .lead-form { display: flex; flex-direction: column; gap: 0.85rem; position: relative; }
-    .lead-form input, .lead-form select { width: 100%; padding: 0.95rem 1.25rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color 0.2s; }
-    .lead-form input:focus, .lead-form select:focus { border-color: rgba(201,168,76,0.5); }
+
+    .lead-box {
+      max-width: 640px; margin: 0 auto;
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 8px; padding: 3.5rem 2.5rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+
+    .lead-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .lead-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.2; margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .lead-box p {
+      color: var(--muted); font-size: 0.95rem;
+      margin-bottom: 2rem; position: relative;
+      line-height: 1.7;
+    }
+
+    .lead-form {
+      display: flex; flex-direction: column;
+      gap: 0.85rem; position: relative;
+    }
+
+    .lead-form input {
+      width: 100%; padding: 0.95rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--white); font-size: 0.95rem;
+      font-family: inherit; outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .lead-form input:focus { border-color: rgba(201,168,76,0.5); }
     .lead-form input::placeholder { color: var(--muted); }
-    .lead-form select { appearance: none; cursor: pointer; }
+
+    .lead-form select {
+      width: 100%; padding: 0.95rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text); font-size: 0.95rem;
+      font-family: inherit; outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .lead-form select:focus { border-color: rgba(201,168,76,0.5); }
+
     .lead-form select option { background: #111; color: var(--white); }
-    .lead-form button { width: 100%; padding: 1.05rem; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--black); font-size: 0.9rem; font-weight: 800; font-family: inherit; letter-spacing: 0.12em; text-transform: uppercase; border: none; border-radius: 4px; cursor: pointer; transition: opacity 0.2s; }
+
+    .lead-form button {
+      width: 100%; padding: 1.05rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--black); font-size: 0.9rem;
+      font-weight: 800; font-family: inherit;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border: none; border-radius: 4px;
+      cursor: pointer; transition: opacity 0.2s;
+    }
+
     .lead-form button:hover { opacity: 0.88; }
+
     .form-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; }
-    .success-box { display: none; background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.3); border-radius: 6px; padding: 2rem; text-align: center; position: relative; }
-    .success-box h3 { font-family: 'Playfair Display', serif; color: var(--gold2); font-size: 1.4rem; margin-bottom: 0.5rem; }
+
+    .success-box {
+      display: none;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 6px; padding: 2rem;
+      text-align: center; position: relative;
+    }
+
+    .success-box h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold2); font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
     .success-box p { color: var(--muted); font-size: 0.9rem; }
-    .proof-strip { background: var(--black); border-top: 1px solid rgba(201,168,76,0.07); border-bottom: 1px solid rgba(201,168,76,0.07); padding: 2rem 1.5rem; }
-    .proof-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; text-align: center; }
-    .proof-stat strong { display: block; font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--gold2); line-height: 1; }
-    .proof-stat span { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
-    .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 1.75rem; }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.07);
+      border-bottom: 1px solid rgba(201,168,76,0.07);
+      padding: 2rem 1.5rem;
+    }
+
+    .proof-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: center; gap: 3rem;
+      flex-wrap: wrap; text-align: center;
+    }
+
+    .proof-stat strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900;
+      color: var(--gold2); line-height: 1;
+    }
+
+    .proof-stat span {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .testi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px; padding: 1.75rem;
+    }
+
     .testi-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
-    .testi-card blockquote { font-style: italic; color: #6b6560; font-size: 0.9rem; line-height: 1.75; border-left: 2px solid rgba(201,168,76,0.25); padding-left: 1rem; margin-bottom: 1.25rem; }
+
+    .testi-card blockquote {
+      font-style: italic; color: #6b6560;
+      font-size: 0.9rem; line-height: 1.75;
+      border-left: 2px solid rgba(201,168,76,0.25);
+      padding-left: 1rem; margin-bottom: 1.25rem;
+    }
+
     .testi-author { display: flex; align-items: center; gap: 0.65rem; }
-    .testi-av { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.25); background: #1a1507; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.78rem; color: var(--gold2); flex-shrink: 0; }
+
+    .testi-av {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.25);
+      background: #1a1507;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.78rem; color: var(--gold2);
+      flex-shrink: 0;
+    }
+
     .testi-author strong { display: block; color: var(--white); font-size: 0.85rem; }
     .testi-author span { color: var(--muted); font-size: 0.75rem; }
-    footer { border-top: 1px solid rgba(201,168,76,0.08); padding: 2.5rem 1.5rem; text-align: center; }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(201,168,76,0.08);
+      padding: 2.5rem 1.5rem; text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--gold);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
     footer p { color: var(--muted); font-size: 0.78rem; line-height: 1.7; max-width: 480px; margin: 0 auto; }
     footer a { color: var(--gold); text-decoration: none; }
-    @media (max-width: 640px) { .kit-grid { grid-template-columns: 1fr; } .lead-box { padding: 2.5rem 1.5rem; } nav { padding: 1rem 1.25rem; } .nav-cta { font-size: 0.72rem; padding: 0.5rem 1rem; } }
+
+    /* ── APP CREATION ── */
+    .app-section { background: var(--black); }
+
+    .app-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; align-items: center;
+    }
+
+    .app-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.15; margin-bottom: 1rem;
+    }
+
+    .app-left h2 span { color: var(--gold2); }
+    .app-left p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.5rem; }
+
+    .app-features { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .app-feature {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px; padding: 1rem 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .app-feature:hover { border-color: rgba(201,168,76,0.3); }
+
+    .app-feature-icon {
+      font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem;
+    }
+
+    .app-feature strong { display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .app-feature span { color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+
+    .app-right {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px; padding: 2rem;
+      position: relative; overflow: hidden;
+    }
+
+    .app-right::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .app-window {
+      background: #0a0a0a; border: 1px solid #1a1a1a;
+      border-radius: 6px; overflow: hidden; margin-bottom: 1rem;
+    }
+
+    .app-window-bar {
+      background: #111; padding: 0.6rem 1rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot-r { background: #3a1a1a; }
+    .dot-y { background: #3a3010; }
+    .dot-g { background: #0a2a1a; }
+
+    .app-window-body { padding: 1.25rem; }
+
+    .code-line {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.78rem; line-height: 1.8; color: #3a3530;
+    }
+
+    .code-line .kw { color: rgba(201,168,76,0.5); }
+    .code-line .str { color: rgba(201,168,76,0.3); }
+    .code-line .fn { color: #5a6a5a; }
+
+    .app-stat-row {
+      display: flex; gap: 0.75rem;
+    }
+
+    .app-stat {
+      flex: 1; background: #0a0a0a;
+      border: 1px solid #1a1a1a; border-radius: 4px;
+      padding: 0.85rem; text-align: center;
+    }
+
+    .app-stat strong {
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--gold2); line-height: 1;
+    }
+
+    .app-stat span { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    /* ── PSYCHOLOGY ── */
+    .psych-section { background: var(--deep); }
+
+    .psych-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1px;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.06);
+      border-radius: 6px; overflow: hidden;
+    }
+
+    .psych-card {
+      background: var(--card);
+      padding: 1.75rem;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .psych-card:hover { background: var(--card2); }
+
+    .psych-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.72rem; color: var(--gold);
+      letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 0.75rem; display: block;
+    }
+
+    .psych-card h3 {
+      font-weight: 700; color: var(--white);
+      font-size: 1rem; margin-bottom: 0.5rem;
+    }
+
+    .psych-card p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; margin-bottom: 1rem; }
+
+    .psych-example {
+      background: rgba(201,168,76,0.05);
+      border-left: 2px solid rgba(201,168,76,0.3);
+      padding: 0.6rem 0.85rem;
+      border-radius: 0 3px 3px 0;
+      font-size: 0.8rem; color: rgba(201,168,76,0.7);
+      font-style: italic; line-height: 1.5;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .app-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .kit-grid { grid-template-columns: 1fr; }
+      .lead-box { padding: 2.5rem 1.5rem; }
+      nav { padding: 1rem 1.25rem; }
+      .nav-cta { font-size: 0.72rem; padding: 0.5rem 1rem; }
+      .app-stat-row { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -113,58 +663,107 @@
   <a href="#book" class="nav-cta">Book with Manny</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">1-on-1 with Manny &nbsp;&middot;&nbsp; The AI Syndicate</p>
+  <p class="hero-eyebrow">1-on-1 with Manny &nbsp;·&nbsp; The AI Syndicate</p>
+
   <h1>Let AI Save Your Business<br/><span class="gold">10 Hours a Week</span></h1>
   <div class="gold-line"></div>
   <p class="hero-sub">One session. Real implementation. Lasting results.</p>
-  <p class="hero-desc">We sit down with you, study your business, and implement AI tools that actually stick &mdash; saving you hours of manual work, getting you found online, and building a digital presence that converts.</p>
+
+  <p class="hero-desc">
+    We sit down with you, study your business, and implement AI tools that actually stick — saving you hours of manual work, getting you found online, and building a digital presence that converts.
+  </p>
+
   <div class="price-tag">
     <span class="price-amount">$197</span>
     <span class="price-label">/ 1-on-1 session with Manny</span>
   </div>
+
   <div class="hero-actions">
     <a href="#book" class="btn-primary">Book My Session &rarr;</a>
     <a href="#free-kit" class="btn-secondary">Grab the Free Kit First</a>
   </div>
-  <p class="hero-note">Limited spots per week &nbsp;&middot;&nbsp; Instant confirmation</p>
+  <p class="hero-note">Limited spots per week &nbsp;·&nbsp; Instant confirmation</p>
 </section>
 
+<!-- PROOF STRIP -->
 <div class="proof-strip">
   <div class="proof-inner">
-    <div class="proof-stat"><strong>10+</strong><span>Hours saved per week</span></div>
-    <div class="proof-stat"><strong>$197</strong><span>Flat session rate</span></div>
-    <div class="proof-stat"><strong>4</strong><span>AI pillars implemented</span></div>
-    <div class="proof-stat"><strong>24hr</strong><span>Response time</span></div>
+    <div class="proof-stat">
+      <strong>10+</strong>
+      <span>Hours saved per week</span>
+    </div>
+    <div class="proof-stat">
+      <strong>$197</strong>
+      <span>Flat session rate</span>
+    </div>
+    <div class="proof-stat">
+      <strong>4</strong>
+      <span>AI pillars implemented</span>
+    </div>
+    <div class="proof-stat">
+      <strong>100%</strong>
+      <span>Done with you, not for you</span>
+    </div>
   </div>
 </div>
 
+<!-- SERVICES -->
 <section class="services">
   <div class="container">
     <p class="section-eyebrow">What We Implement</p>
     <h2 class="section-title">One Session Covers All of This</h2>
     <div class="gold-line"></div>
     <p class="section-desc">Tell Manny your biggest bottleneck. We focus the session on the area that moves the needle most for your business.</p>
+
     <div class="services-grid">
-      <div class="service"><span class="service-icon">&#9889;</span><h3>AI Workflow Automation</h3><p>We identify what's eating your time and automate it &mdash; client onboarding, follow-ups, scheduling, reporting. Built with tools you already have access to.</p><span class="result">Save 10+ hrs/week</span></div>
-      <div class="service"><span class="service-icon">&#128269;</span><h3>SEO &amp; Online Visibility</h3><p>Get your business showing up where your customers are searching. AI-assisted SEO strategies that work for local and national businesses alike.</p><span class="result">Show up on Google</span></div>
-      <div class="service"><span class="service-icon">&#127916;</span><h3>Social Media Systems</h3><p>Stop posting manually. We build an AI-powered content pipeline &mdash; scripts, captions, graphics &mdash; so you show up consistently without burning out.</p><span class="result">Post without burnout</span></div>
-      <div class="service"><span class="service-icon">&#127760;</span><h3>Web Design &amp; Presence</h3><p>A professional website that converts visitors into leads. Clean, fast, and built to represent your brand &mdash; without the $5,000 agency price tag.</p><span class="result">Convert visitors to leads</span></div>
+
+      <div class="service">
+        <span class="service-icon">⚡</span>
+        <h3>AI Workflow Automation</h3>
+        <p>We identify what's eating your time and automate it — client onboarding, follow-ups, scheduling, reporting. Built with tools you already have access to.</p>
+        <span class="result">Save 10+ hrs/week</span>
+      </div>
+
+      <div class="service">
+        <span class="service-icon">🔍</span>
+        <h3>SEO &amp; Online Visibility</h3>
+        <p>Get your business showing up where your customers are searching. We implement AI-assisted SEO strategies that work for local and national businesses.</p>
+        <span class="result">Show up on Google</span>
+      </div>
+
+      <div class="service">
+        <span class="service-icon">🎬</span>
+        <h3>Social Media Systems</h3>
+        <p>Stop posting manually. We build an AI-powered content pipeline — scripts, captions, graphics — so you show up consistently without burning out.</p>
+        <span class="result">Post without burnout</span>
+      </div>
+
+      <div class="service">
+        <span class="service-icon">🌐</span>
+        <h3>Web Design &amp; Presence</h3>
+        <p>A professional website that converts visitors into leads. Clean, fast, and built to represent your brand — without a $5,000 agency bill.</p>
+        <span class="result">Convert visitors to leads</span>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- FREE KIT -->
 <section class="kit-section" id="free-kit">
   <div class="container">
     <p class="section-eyebrow">Free Resources</p>
     <h2 class="section-title">Grab These Before You Book</h2>
     <div class="gold-line"></div>
-    <p class="section-desc">Two free kits built by Manny for people who are serious about using AI to earn online. Enter your email below to get both instantly.</p>
+    <p class="section-desc">Two free kits built by Manny for people who are serious about using AI to earn online. Enter your email below to get both.</p>
+
     <div class="kit-grid">
       <div class="kit-card">
         <span class="kit-badge">Free Kit 01</span>
         <h3>Biz in a Box Prompt Kit</h3>
-        <p>A ready-to-use collection of AI prompts covering every part of running a business online &mdash; from writing offers to closing clients.</p>
+        <p>A ready-to-use collection of AI prompts that cover every part of running a business online — from writing offers to closing clients.</p>
         <ul>
           <li>50+ battle-tested AI prompts</li>
           <li>Sales, content &amp; outreach prompts</li>
@@ -172,10 +771,11 @@
           <li>Copy, paste, and customize</li>
         </ul>
       </div>
+
       <div class="kit-card">
         <span class="kit-badge">Free Kit 02</span>
         <h3>Freelancer's Starter Kit</h3>
-        <p>Everything you need to start selling a service online &mdash; pricing templates, outreach scripts, proposal frameworks, and onboarding docs.</p>
+        <p>Everything you need to start selling a service online — pricing templates, outreach scripts, proposal frameworks, and onboarding docs.</p>
         <ul>
           <li>Cold DM &amp; email templates</li>
           <li>Proposal &amp; pricing calculator</li>
@@ -187,54 +787,241 @@
   </div>
 </section>
 
+<!-- LEAD FORM -->
 <section class="lead-section" id="book">
   <div class="container">
     <div class="lead-box">
+
       <h2>Book Your Session<br/><span style="color:var(--gold2)">or Grab the Free Kit</span></h2>
       <div class="gold-line"></div>
-      <p>Fill in your details. Manny will reach out within 24 hours to confirm your session or send your free kit &mdash; whichever you choose.</p>
-      <form class="lead-form" onsubmit="handleSubmit(event)">
+      <p>Fill in your details. Manny will reach out within 24 hours to confirm your session or send your free kit — whichever you choose.</p>
+
+      <form
+        class="lead-form"
+        action="https://formspree.io/f/withmanny1587@gmail.com"
+        method="POST"
+        onsubmit="handleSubmit(event)"
+      >
         <input type="text" name="name" placeholder="Your full name" required />
         <input type="email" name="email" placeholder="Your email address" required />
         <input type="tel" name="phone" placeholder="Your phone number (optional)" />
+
         <select name="interest" required>
           <option value="" disabled selected>What are you interested in?</option>
           <option value="book-session">Book the $197 1-on-1 session with Manny</option>
           <option value="free-kit">Just the free kits for now</option>
-          <option value="automation">AI Automation &mdash; save time on workflows</option>
-          <option value="seo">SEO &mdash; get found on Google</option>
-          <option value="social">Social Media &mdash; consistent content system</option>
-          <option value="web">Web Design &mdash; professional site that converts</option>
+          <option value="automation">AI Automation — save time on workflows</option>
+          <option value="seo">SEO — get found on Google</option>
+          <option value="social">Social Media — consistent content system</option>
+          <option value="web">Web Design — professional site that converts</option>
         </select>
+
         <input type="text" name="business" placeholder="Tell us about your business (optional)" />
+
+        <input type="hidden" name="_subject" value="New AI Syndicate Lead" />
+        <input type="hidden" name="_next" value="thanks" />
+
         <button type="submit">Send My Info &rarr;</button>
       </form>
+
       <div class="success-box" id="success-box">
-        <h3>&#10022; &nbsp; You're In</h3>
-        <p>Manny will be in touch within 24 hours. Check your inbox &mdash; your free kits are on the way.</p>
+        <h3>✦ &nbsp; You're In</h3>
+        <p>Manny will be in touch within 24 hours. Check your inbox — your free kits are on the way.</p>
       </div>
+
       <p class="form-note">No spam. Your info goes directly to Manny. Unsubscribe anytime.</p>
     </div>
   </div>
 </section>
 
-<section style="background:var(--black);padding:5rem 1.5rem;">
+<!-- APP CREATION -->
+<section class="app-section">
+  <div class="container">
+    <div class="app-grid">
+      <div class="app-left">
+        <p class="section-eyebrow" style="text-align:left;">The Foundry</p>
+        <h2>We Build Apps,<br/>Sites &amp; <span>SaaS Tools</span><br/>That Work</h2>
+        <div class="gold-line" style="margin:1rem 0;"></div>
+        <p>Through The Foundry pillar of The AI Syndicate, Manny builds real digital products for you — or teaches you to build them yourself using AI tools. From a simple landing page to a full web app, we scope it, build it, and ship it.</p>
+
+        <div class="app-features">
+          <div class="app-feature">
+            <div class="app-feature-icon">&#127760;</div>
+            <div>
+              <strong>Website Design &amp; Development</strong>
+              <span>Professional, fast-loading sites built to convert visitors into paying clients — not just look pretty.</span>
+            </div>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">&#128187;</div>
+            <div>
+              <strong>Web App &amp; SaaS Creation</strong>
+              <span>Got a software idea? We use AI-assisted development to take it from concept to working product — fast and affordable.</span>
+            </div>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">&#128300;</div>
+            <div>
+              <strong>No-Code &amp; AI-Assisted Builds</strong>
+              <span>We pick the right tools for the job — no unnecessary complexity. Deployed, hosted, and handed over to you ready to use.</span>
+            </div>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">&#9881;&#65039;</div>
+            <div>
+              <strong>Ongoing Support &amp; Iteration</strong>
+              <span>We don't disappear after launch. Updates, tweaks, and growth features are all in scope for Foundry clients.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-right">
+        <div class="app-window">
+          <div class="app-window-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+          </div>
+          <div class="app-window-body">
+            <div class="code-line"><span class="kw">const</span> <span class="fn">buildProduct</span> = <span class="kw">async</span> () => {</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="kw">const</span> idea = <span class="str">"your business idea"</span>;</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="kw">const</span> stack = <span class="fn">selectTools</span>(idea);</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="kw">const</span> mvp = <span class="kw">await</span> <span class="fn">buildWithAI</span>(stack);</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="kw">await</span> <span class="fn">deploy</span>(mvp);</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"live product"</span>; <span class="fn">// ✓ done</span></div>
+            <div class="code-line">};</div>
+          </div>
+        </div>
+
+        <div class="app-stat-row">
+          <div class="app-stat">
+            <strong>14</strong>
+            <span>Days to launch</span>
+          </div>
+          <div class="app-stat">
+            <strong>$0</strong>
+            <span>Inventory cost</span>
+          </div>
+          <div class="app-stat">
+            <strong>∞</strong>
+            <span>Scalability</span>
+          </div>
+        </div>
+
+        <div style="margin-top:1.25rem;padding:1rem;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);border-radius:4px;text-align:center;">
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;">Ready to build?</p>
+          <a href="#book" class="btn-primary" style="font-size:0.78rem;padding:0.65rem 1.5rem;">Book a Foundry Session &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SALES PSYCHOLOGY -->
+<section class="psych-section">
+  <div class="container">
+    <p class="section-eyebrow">Sales Psychology</p>
+    <h2 class="section-title">The Triggers That Close Deals</h2>
+    <div class="gold-line"></div>
+    <p class="section-desc">Every purchase ever made was driven by one or more of these. Manny teaches you to identify, engineer, and deploy them ethically — across every pillar.</p>
+
+    <div class="psych-grid">
+
+      <div class="psych-card">
+        <span class="psych-num">Trigger 01 &nbsp;&middot;&nbsp; Scarcity</span>
+        <h3>People Want What They Can't Always Have</h3>
+        <p>Loss aversion is 2x more powerful than desire for gain. When supply is limited — real or perceived — urgency and perceived value spike simultaneously.</p>
+        <div class="psych-example">"Only 3 spots left this month for 1-on-1 sessions."</div>
+      </div>
+
+      <div class="psych-card">
+        <span class="psych-num">Trigger 02 &nbsp;&middot;&nbsp; Authority</span>
+        <h3>Credentials Aren't Required — Positioning Is</h3>
+        <p>People follow those who demonstrate expertise consistently. Case studies, specific results, and confident framing build authority faster than any certificate.</p>
+        <div class="psych-example">"I helped 3 businesses cut 10 hours of work per week using this exact system."</div>
+      </div>
+
+      <div class="psych-card">
+        <span class="psych-num">Trigger 03 &nbsp;&middot;&nbsp; Social Proof</span>
+        <h3>Nobody Wants to Be the First or the Last</h3>
+        <p>When people are uncertain, they copy others. Reviews, testimonials, and usage numbers reduce the perceived risk of saying yes — dramatically.</p>
+        <div class="psych-example">"1,400+ people have already joined the challenge."</div>
+      </div>
+
+      <div class="psych-card">
+        <span class="psych-num">Trigger 04 &nbsp;&middot;&nbsp; Reciprocity</span>
+        <h3>Give First — Strategically</h3>
+        <p>When you provide genuine value with no strings attached, people feel psychologically compelled to return it. This is why free kits, guides, and audits convert so well.</p>
+        <div class="psych-example">"Here's the Biz in a Box kit — no pitch, just value."</div>
+      </div>
+
+      <div class="psych-card">
+        <span class="psych-num">Trigger 05 &nbsp;&middot;&nbsp; Commitment</span>
+        <h3>Small Yeses Lead to Big Yeses</h3>
+        <p>Once someone agrees to a micro-action — downloading a kit, joining a list, answering a question — they're primed to follow through on larger decisions.</p>
+        <div class="psych-example">"Want me to send the free kit over?" → yes → "Here's how to book a call."</div>
+      </div>
+
+      <div class="psych-card">
+        <span class="psych-num">Trigger 06 &nbsp;&middot;&nbsp; Identity</span>
+        <h3>People Buy Who They Want to Become</h3>
+        <p>Your offer isn't just a product — it's an identity upgrade. Position your service as what smart, successful people do, and the right buyer self-selects immediately.</p>
+        <div class="psych-example">"The AI Syndicate is for people who are serious about building real income."</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--black); padding: 5rem 1.5rem;">
   <div class="container">
     <p class="section-eyebrow">Results</p>
     <h2 class="section-title">What Clients Say</h2>
     <div class="gold-line"></div>
     <div class="testi-grid">
-      <div class="testi-card"><p class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</p><blockquote>"One session with Manny and my entire client onboarding was automated. What used to take me 3 hours now runs itself. Best $197 I've spent on my business."</blockquote><div class="testi-author"><div class="testi-av">JR</div><div><strong>James R.</strong><span>Freelance Consultant, Texas</span></div></div></div>
-      <div class="testi-card"><p class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</p><blockquote>"My Google ranking went from nowhere to page one in 6 weeks after implementing what Manny taught me. The SEO session alone was worth 10x what I paid."</blockquote><div class="testi-author"><div class="testi-av">KM</div><div><strong>Keisha M.</strong><span>Local Business Owner, Georgia</span></div></div></div>
-      <div class="testi-card"><p class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</p><blockquote>"I was posting manually every day and burning out. Manny built me a content system using AI that posts for me 5x a week. My engagement tripled in a month."</blockquote><div class="testi-author"><div class="testi-av">TS</div><div><strong>Tyler S.</strong><span>Content Creator, Ohio</span></div></div></div>
+
+      <div class="testi-card">
+        <p class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+        <blockquote>"One session with Manny and my entire client onboarding was automated. What used to take me 3 hours now runs itself. Best $197 I've spent on my business."</blockquote>
+        <div class="testi-author">
+          <div class="testi-av">JR</div>
+          <div><strong>James R.</strong><span>Freelance Consultant, Texas</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+        <blockquote>"My Google ranking went from nowhere to page one in 6 weeks after implementing what Manny taught me. The SEO session alone was worth 10x what I paid."</blockquote>
+        <div class="testi-author">
+          <div class="testi-av">KM</div>
+          <div><strong>Keisha M.</strong><span>Local Business Owner, Georgia</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+        <blockquote>"I was posting manually every day and burning out. Manny built me a content system using AI that posts for me 5x a week. My engagement tripled in a month."</blockquote>
+        <div class="testi-author">
+          <div class="testi-av">TS</div>
+          <div><strong>Tyler S.</strong><span>Content Creator, Ohio</span></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <p class="footer-logo">The AI Syndicate</p>
-  <p>&copy; 2026 The AI Syndicate with Manny &nbsp;&middot;&nbsp; <a href="sales-script.html">Sales Scripts</a> &nbsp;&middot;&nbsp; <a href="mailto:withmanny1587@gmail.com">withmanny1587@gmail.com</a></p>
-  <p style="margin-top:0.5rem;">Individual results vary. Outcomes depend on effort, market, and execution.</p>
+  <p>
+    &copy; 2026 The AI Syndicate with Manny &nbsp;&middot;&nbsp;
+    <a href="sales-script.html">Sales Scripts</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:withmanny1587@gmail.com">withmanny1587@gmail.com</a>
+  </p>
+  <p style="margin-top:0.5rem;">Individual results vary. Income and time-saving outcomes depend on your effort, market, and execution.</p>
 </footer>
 
 <script>
@@ -242,15 +1029,20 @@
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
-    fetch('https://formspree.io/f/withmanny1587@gmail.com', {
-      method: 'POST', body: data,
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
       headers: { 'Accept': 'application/json' }
     }).then(res => {
-      form.style.display = 'none';
-      document.getElementById('success-box').style.display = 'block';
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('success-box').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please email withmanny1587@gmail.com directly.');
+      }
     }).catch(() => {
-      form.style.display = 'none';
-      document.getElementById('success-box').style.display = 'block';
+      alert('Something went wrong. Please email withmanny1587@gmail.com directly.');
     });
   }
 </script>
