@@ -632,9 +632,120 @@
       font-style: italic; line-height: 1.5;
     }
 
+    /* ── HUNYUAN VIDEO ── */
+    .hunyuan-section { background: var(--deep); }
+
+    .hunyuan-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; align-items: center;
+    }
+
+    .hunyuan-right h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.15; margin-bottom: 1rem;
+    }
+
+    .hunyuan-right h2 span { color: var(--gold2); }
+    .hunyuan-right p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.5rem; }
+
+    .hunyuan-left {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px; padding: 0;
+      overflow: hidden; position: relative;
+    }
+
+    .hunyuan-video-wrapper {
+      position: relative; padding-bottom: 56.25%;
+      background: #0a0a0a;
+    }
+
+    .hunyuan-video-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem;
+      background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+    }
+
+    .hunyuan-play-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.5);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    }
+
+    .hunyuan-play-icon:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
+    }
+
+    .hunyuan-play-icon svg { width: 28px; height: 28px; fill: var(--gold2); margin-left: 4px; }
+
+    .hunyuan-video-label {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hunyuan-specs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: rgba(201,168,76,0.07);
+      border-top: 1px solid rgba(201,168,76,0.07);
+    }
+
+    .hunyuan-spec {
+      background: var(--card);
+      padding: 0.85rem 1.1rem;
+      text-align: center;
+    }
+
+    .hunyuan-spec strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--gold2);
+      line-height: 1; margin-bottom: 0.2rem;
+    }
+
+    .hunyuan-spec span {
+      font-size: 0.68rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    .hunyuan-features { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .hunyuan-feature {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px; padding: 1rem 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .hunyuan-feature:hover { border-color: rgba(201,168,76,0.3); }
+
+    .hunyuan-feature-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .hunyuan-feature strong { display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .hunyuan-feature span { color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+
+    .hunyuan-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 0.3rem 0.75rem; border-radius: 2px;
+      margin-bottom: 1rem; display: inline-block;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .app-grid { grid-template-columns: 1fr; }
+      .hunyuan-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -736,7 +847,7 @@
       <div class="service">
         <span class="service-icon">🎬</span>
         <h3>Social Media Systems</h3>
-        <p>Stop posting manually. We build an AI-powered content pipeline — scripts, captions, graphics — so you show up consistently without burning out.</p>
+        <p>Stop posting manually. We build an AI-powered content pipeline — including HunyuanVideo AI generation for Reels, TikToks, and Shorts — so you show up consistently without burning out.</p>
         <span class="result">Post without burnout</span>
       </div>
 
@@ -814,6 +925,7 @@
           <option value="seo">SEO — get found on Google</option>
           <option value="social">Social Media — consistent content system</option>
           <option value="web">Web Design — professional site that converts</option>
+          <option value="video">AI Video — HunyuanVideo content generation</option>
         </select>
 
         <input type="text" name="business" placeholder="Tell us about your business (optional)" />
@@ -914,6 +1026,93 @@
           <a href="#book" class="btn-primary" style="font-size:0.78rem;padding:0.65rem 1.5rem;">Book a Foundry Session &rarr;</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- HUNYUAN VIDEO -->
+<section class="hunyuan-section" id="hunyuan-video">
+  <div class="container">
+    <p class="section-eyebrow">AI Video Generation</p>
+    <h2 class="section-title">Create Stunning Videos<br/>with <span style="color:var(--gold2)">HunyuanVideo AI</span></h2>
+    <div class="gold-line"></div>
+    <p class="section-desc">Generate cinematic-quality AI videos for your brand in minutes — no camera, no crew, no editing skills required. Manny helps you deploy HunyuanVideo as part of your social media system.</p>
+
+    <div class="hunyuan-grid">
+
+      <div class="hunyuan-left">
+        <div class="hunyuan-video-wrapper">
+          <div class="hunyuan-video-placeholder">
+            <div class="hunyuan-play-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <p class="hunyuan-video-label">HunyuanVideo Demo</p>
+          </div>
+        </div>
+        <div class="hunyuan-specs">
+          <div class="hunyuan-spec">
+            <strong>13B</strong>
+            <span>Parameters</span>
+          </div>
+          <div class="hunyuan-spec">
+            <strong>720p</strong>
+            <span>Output Quality</span>
+          </div>
+          <div class="hunyuan-spec">
+            <strong>5s+</strong>
+            <span>Video Length</span>
+          </div>
+          <div class="hunyuan-spec">
+            <strong>Open</strong>
+            <span>Source Model</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hunyuan-right">
+        <span class="hunyuan-badge">Powered by Tencent HunyuanVideo</span>
+        <h2>Text-to-Video.<br/><span>World-Class Quality.</span><br/>Zero Production Cost.</h2>
+        <div class="gold-line" style="margin:1rem 0;"></div>
+        <p>HunyuanVideo is one of the most powerful open-source video generation models available. During your session, Manny shows you exactly how to use it to create scroll-stopping content for your brand — product showcases, social ads, explainer clips, and more.</p>
+
+        <div class="hunyuan-features">
+          <div class="hunyuan-feature">
+            <div class="hunyuan-feature-icon">&#127916;</div>
+            <div>
+              <strong>Text-to-Video Generation</strong>
+              <span>Type a prompt, get a cinematic video. Generate product demos, brand stories, and social content from a single sentence.</span>
+            </div>
+          </div>
+          <div class="hunyuan-feature">
+            <div class="hunyuan-feature-icon">&#128248;</div>
+            <div>
+              <strong>Image-to-Video Animation</strong>
+              <span>Bring your existing photos and brand assets to life. Turn static images into dynamic videos that capture attention in the feed.</span>
+            </div>
+          </div>
+          <div class="hunyuan-feature">
+            <div class="hunyuan-feature-icon">&#9889;</div>
+            <div>
+              <strong>Rapid Content at Scale</strong>
+              <span>Generate a week's worth of video content in an afternoon. Never run out of material for Reels, TikToks, and YouTube Shorts again.</span>
+            </div>
+          </div>
+          <div class="hunyuan-feature">
+            <div class="hunyuan-feature-icon">&#127775;</div>
+            <div>
+              <strong>Zero Camera, Zero Crew</strong>
+              <span>No expensive equipment or production team needed. Professional-grade video for businesses of any size — at near-zero cost.</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem;">
+          <a href="#book" class="btn-primary">Add AI Video to My Session &rarr;</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
