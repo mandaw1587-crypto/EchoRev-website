@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Business Outreach Emails — The AI Syndicate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000;
+      --deep: #080808;
+      --card: #0f0f0f;
+      --card2: #141414;
+      --border: #1c1c1c;
+      --gold: #c9a84c;
+      --gold2: #e8c97a;
+      --text: #c4bfb4;
+      --muted: #555050;
+      --white: #fff;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+    /* NAV */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2.5rem; border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .nav-brand { font-family: 'Playfair Display', serif; color: var(--gold2); font-size: 1rem; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase; }
+    .back-link { color: var(--muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .back-link:hover { color: var(--gold); }
+
+    /* HEADER */
+    .page-header { text-align: center; padding: 4rem 1.5rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.08); position: relative; }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; position: relative; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 0.75rem; position: relative; }
+    .page-header h1 span { color: var(--gold2); }
+    .page-header p { color: var(--muted); max-width: 580px; margin: 0 auto; font-size: 0.95rem; line-height: 1.7; position: relative; }
+    .gold-line { width: 60px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 1.25rem auto; }
+
+    /* STATS STRIP */
+    .stats-strip {
+      background: var(--deep);
+      border-bottom: 1px solid rgba(201,168,76,0.07);
+      padding: 1.5rem;
+    }
+    .stats-inner {
+      max-width: 760px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap; text-align: center;
+    }
+    .stat strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--gold2); line-height: 1; }
+    .stat span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    /* LAYOUT */
+    .layout { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+
+    /* STRATEGY BOX */
+    .strategy-box {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 8px; padding: 2rem 2.25rem;
+      margin-bottom: 3rem; position: relative; overflow: hidden;
+    }
+    .strategy-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .strategy-box h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--white); margin-bottom: 0.75rem; position: relative; }
+    .strategy-box p { color: var(--muted); font-size: 0.88rem; line-height: 1.75; position: relative; }
+    .strategy-steps { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.25rem; position: relative; }
+    .step { display: flex; gap: 0.85rem; align-items: flex-start; }
+    .step-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 800; color: var(--gold); margin-top: 0.1rem;
+    }
+    .step p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; margin: 0; }
+    .step p strong { color: var(--text); }
+
+    /* DIVIDER */
+    .section-divider { margin: 3rem 0 2.5rem; }
+    .section-divider h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--white); margin-bottom: 0.4rem;
+    }
+    .section-divider p { color: var(--muted); font-size: 0.85rem; }
+
+    /* EMAIL BLOCK */
+    .email-block { margin-bottom: 2.5rem; }
+    .email-header {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .biz-num {
+      flex-shrink: 0; width: 40px; height: 40px;
+      border: 1px solid rgba(201,168,76,0.4); border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gold);
+    }
+    .email-meta { flex: 1; }
+    .email-meta h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); }
+    .email-meta .sub { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.85rem; }
+    .tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.2); padding: 0.22rem 0.55rem; border-radius: 2px; }
+    .email-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .email-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.65rem 1.25rem; background: rgba(201,168,76,0.04);
+      border-bottom: 1px solid var(--border);
+    }
+    .email-card-header span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .copy-btn { background: transparent; border: 1px solid rgba(201,168,76,0.25); color: var(--gold); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.28rem 0.7rem; border-radius: 2px; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+    .copy-btn:hover { background: rgba(201,168,76,0.1); }
+    .copy-btn.copied { color: #3da85a; border-color: #3da85a; }
+    .email-body { padding: 1.5rem 1.75rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; line-height: 1.85; color: #8a8480; white-space: pre-wrap; }
+    .email-body .subj { color: rgba(201,168,76,0.6); font-weight: 500; }
+    .tip { background: rgba(201,168,76,0.05); border-left: 2px solid rgba(201,168,76,0.3); padding: 0.85rem 1.1rem; border-radius: 0 4px 4px 0; margin-top: 0.85rem; font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+    .tip strong { color: var(--gold2); }
+
+    /* FOLLOW-UP SECTION */
+    .followup-section { margin-top: 4rem; }
+    .fu-grid { display: flex; flex-direction: column; gap: 2rem; }
+
+    /* HOW-TO BOX */
+    .howto-box {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px; padding: 2rem 2.25rem; margin-top: 3.5rem;
+    }
+    .howto-box h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 1.25rem; }
+    .howto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .howto-item { background: rgba(201,168,76,0.04); border: 1px solid rgba(201,168,76,0.1); border-radius: 4px; padding: 1rem 1.25rem; }
+    .howto-item strong { display: block; color: var(--gold2); font-size: 0.85rem; margin-bottom: 0.35rem; }
+    .howto-item p { color: var(--muted); font-size: 0.8rem; line-height: 1.6; }
+
+    footer { border-top: 1px solid rgba(201,168,76,0.08); padding: 2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.78rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .howto-grid { grid-template-columns: 1fr; }
+      .stats-inner { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">The AI Syndicate</a>
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">Outreach Toolkit &nbsp;·&nbsp; Harbor Springs &amp; Petoskey, MI</p>
+  <h1>Local Business<br/><span>Cold Outreach Emails</span></h1>
+  <div class="gold-line"></div>
+  <p>25 ready-to-send emails for local businesses in the Harbor Springs / Petoskey area that have no website. Each email is pre-personalized by business type. Swap in the owner's name and hit send.</p>
+</div>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><strong>25</strong><span>Business targets</span></div>
+    <div class="stat"><strong>3</strong><span>Email sequences</span></div>
+    <div class="stat"><strong>$197</strong><span>Session rate</span></div>
+    <div class="stat"><strong>0</strong><span>Websites they have</span></div>
+  </div>
+</div>
+
+<div class="layout">
+
+  <!-- STRATEGY -->
+  <div class="strategy-box">
+    <h2>The Strategy</h2>
+    <p>Businesses without a website are losing customers every day to competitors who show up on Google. Your cold email doesn't sell the website — it sells the problem they're already feeling. Lead with that pain, offer a free look, then close with the session.</p>
+    <div class="strategy-steps">
+      <div class="step"><div class="step-num">1</div><p><strong>Find them.</strong> Google Maps searches like "restaurant harbor springs", "hair salon petoskey" etc. — businesses with no website listed, or just a Facebook page link.</p></div>
+      <div class="step"><div class="step-num">2</div><p><strong>Verify.</strong> Confirm they have no website (or an outdated one). Note their business name and owner name if visible on Google Business or Facebook.</p></div>
+      <div class="step"><div class="step-num">3</div><p><strong>Personalize and send.</strong> Use the matching template below. Swap in the owner's first name, the business name, and one specific detail you noticed about them.</p></div>
+      <div class="step"><div class="step-num">4</div><p><strong>Follow up.</strong> Send follow-up #1 at day 3 and follow-up #2 at day 7. Most closes come from the follow-up, not the first email.</p></div>
+    </div>
+  </div>
+
+  <!-- MASTER TEMPLATE -->
+  <div class="section-divider">
+    <h2>Master Template</h2>
+    <p>Use this for any business type — fill in the brackets.</p>
+  </div>
+
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">★</div>
+      <div class="email-meta">
+        <h3>Universal Cold Email</h3>
+        <div class="sub">Works for any local business without a website</div>
+      </div>
+    </div>
+    <div class="tag-row"><span class="tag">Reciprocity</span><span class="tag">Pain-First</span><span class="tag">Local Specificity</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Template &nbsp;·&nbsp; Master Cold Email</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: [Business Name] — quick question about your online presence</span>
+
+Hey [First Name],
+
+I was looking for a [type of business] in [Harbor Springs / Petoskey]
+and came across [Business Name]. Looks like a great spot.
+
+One thing I noticed — you don't have a website yet. That means
+when someone searches "[your service] near Harbor Springs" on Google,
+they're finding your competitors instead of you.
+
+I help local Michigan businesses get a professional site up fast
+— usually in under 2 weeks — along with a Google presence that
+actually sends customers your way.
+
+I put together a quick look at what's missing for your business
+specifically. No pitch — just want to share what I found.
+
+Want me to send it over?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Why it works:</strong> Opens by referencing a real search (shows you did homework). Names the exact pain — customers going to competitors. Ends with a low-stakes micro-yes. Never mentions price in email #1.</div>
+  </div>
+
+  <!-- 25 BUSINESS-SPECIFIC EMAILS -->
+  <div class="section-divider">
+    <h2>25 Business-Specific Emails</h2>
+    <p>Pre-written for the most common no-website businesses in the Harbor Springs / Petoskey corridor.</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">01</div>
+      <div class="email-meta"><h3>Restaurant / Diner</h3><div class="sub">No website, possibly a Facebook page only</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Pain-First</span><span class="tag">Local SEO</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 01 &nbsp;·&nbsp; Restaurant</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: [Restaurant Name] — tourists can't find you online</span>
+
+Hey [First Name],
+
+I searched "restaurants in Harbor Springs" yesterday and
+[Restaurant Name] didn't come up — no website, no Google listing
+with a menu. That's a lot of hungry tourists going somewhere else.
+
+I help local restaurants get a simple, fast website with your
+menu, hours, and a Google presence that shows up when people
+are searching from their phone at the marina.
+
+Takes about 2 weeks to set up. No tech knowledge needed on your end.
+
+Want me to pull together a quick snapshot of what we'd build
+for you? No obligation — just want you to see what's possible.
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "Tourists" is the magic word in Harbor Springs — that's 80% of summer foot traffic. Make the loss feel real and local.</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">02</div>
+      <div class="email-meta"><h3>Hair Salon / Barbershop</h3><div class="sub">Booking done by phone or walk-in only</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Convenience</span><span class="tag">Online Booking</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 02 &nbsp;·&nbsp; Hair Salon</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: People are searching for a salon in Petoskey — are they finding you?</span>
+
+Hey [First Name],
+
+Quick question: when someone Googles "hair salon Petoskey" at
+9 PM and wants to book for tomorrow morning, can they find
+[Salon Name] and book a spot?
+
+Right now, the answer is no — because you don't have a website
+or online booking set up.
+
+I set up simple booking websites for salons in Northern Michigan
+that let clients book 24/7 without calling. It runs itself.
+You just show up to the appointments.
+
+I'd love to put together a quick example of what yours could
+look like — takes me about 20 minutes and costs you nothing to see it.
+
+Interested?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> The "9 PM booking" scenario is relatable and paints the lost revenue picture without being aggressive.</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">03</div>
+      <div class="email-meta"><h3>Auto Repair Shop</h3><div class="sub">Word-of-mouth only, no digital presence</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Trust</span><span class="tag">Google Reviews</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 03 &nbsp;·&nbsp; Auto Repair</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: [Shop Name] — new customers can't verify you're legit</span>
+
+Hey [First Name],
+
+When someone's car breaks down near Petoskey and they Google
+"auto repair near me" — they go with whoever has a website
+and reviews. Right now, [Shop Name] isn't in that picture.
+
+Even your loyal customers can't send people to you with
+a simple link. That's word-of-mouth dying before it starts.
+
+I build simple, professional sites for local shops like yours —
+services listed, reviews front and center, and a Google presence
+that shows up when people need you most.
+
+Can I put together a quick mockup of what [Shop Name]'s
+site could look like? No charge for the look.
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "New customers can't verify you're legit" hits on trust — the #1 purchase blocker for auto repair.</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">04</div>
+      <div class="email-meta"><h3>Landscaping / Lawn Care</h3><div class="sub">Seasonal, relies on flyers and referrals</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Seasonal Urgency</span><span class="tag">Lead Generation</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 04 &nbsp;·&nbsp; Landscaping</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Summer's the money season — are new clients finding [Business Name]?</span>
+
+Hey [First Name],
+
+Spring and summer in Northern Michigan are everything for
+landscaping. But if [Business Name] doesn't have a website,
+every new homeowner moving into the area is calling someone
+else — because you're not showing up when they search.
+
+A simple site with your services, a photo of your work,
+and a "get a quote" form can fill your schedule before the
+season even starts.
+
+I set these up fast and keep them simple. I'd love to show
+you what one would look like for your business — no charge
+to see the mockup.
+
+Worth a look?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> Tie the urgency to their season, not a generic deadline. It feels local and real.</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">05</div>
+      <div class="email-meta"><h3>Bakery / Cafe</h3><div class="sub">Foot traffic only, no online ordering or menu</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Discovery</span><span class="tag">Tourist Traffic</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 05 &nbsp;·&nbsp; Bakery</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Visitors to Harbor Springs are looking for spots like yours</span>
+
+Hey [First Name],
+
+Tourists planning a trip to Harbor Springs spend hours on
+Google figuring out where to eat, drink, and explore —
+before they even arrive.
+
+If [Bakery Name] doesn't have a website with photos of
+your pastries, your hours, and your story, you're invisible
+to that entire audience. They're going to the place that
+showed up first.
+
+A simple, beautiful one-page site can change that completely.
+I build them for local food businesses here in Northern
+Michigan — clean, fast, and with good photo presentation
+that makes people want to visit before they've even left home.
+
+Want me to sketch out what [Bakery Name]'s could look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "Before they even arrive" captures the tourist planning mindset — a powerful frame for any Harbor Springs business.</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">06</div>
+      <div class="email-meta"><h3>Plumber / Electrician</h3><div class="sub">Emergency calls only, no lead pipeline</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Emergency Intent</span><span class="tag">Trust Signals</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 06 &nbsp;·&nbsp; Plumber / Electrician</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: When someone has a burst pipe at midnight — they're not calling you</span>
+
+Hey [First Name],
+
+When a homeowner near Petoskey has an emergency at night,
+they pull out their phone and Google "plumber near me."
+They call the first one with a website and a phone number
+front and center.
+
+Without a website, [Business Name] isn't in that list —
+even if you're 5 minutes away and better than everyone else.
+
+I set up simple, mobile-friendly sites for local tradespeople
+that include your services, your service area, your number
+in big text, and a contact form that goes straight to your phone.
+
+Costs less than one job. Takes about 2 weeks.
+
+Can I show you what it would look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> Emergency intent is the highest-value search intent. Make the plumber feel the missed midnight call.</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">07</div>
+      <div class="email-meta"><h3>Cleaning Service</h3><div class="sub">Residential or commercial, flyer-based marketing</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Vacation Rentals</span><span class="tag">Recurring Revenue</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 07 &nbsp;·&nbsp; Cleaning Service</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Vacation rental hosts near Petoskey need exactly what you offer</span>
+
+Hey [First Name],
+
+The short-term rental market around Harbor Springs and Petoskey
+has exploded — and every Airbnb and VRBO host needs a reliable
+cleaner between guests.
+
+Those hosts find their cleaners by Googling "cleaning service
+Harbor Springs" or "vacation rental cleaning Petoskey."
+If [Business Name] doesn't have a website, you're not
+getting those calls.
+
+A one-page site with your services, your area, and a
+"request a quote" button is all it takes to start showing up.
+
+I'd love to pull together a quick look at what yours
+could be. No cost to see it.
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> The vacation rental angle is extremely relevant to this specific area and creates a new revenue angle they may not have considered.</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">08</div>
+      <div class="email-meta"><h3>Retail Boutique / Gift Shop</h3><div class="sub">Walk-in only, no e-commerce or online presence</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">E-Commerce</span><span class="tag">Tourist Reach</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 08 &nbsp;·&nbsp; Retail Boutique</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: [Shop Name] — visitors are buying from you once and never again</span>
+
+Hey [First Name],
+
+Your best customers are probably tourists who love [Shop Name],
+leave Harbor Springs, and then have no way to find you again —
+no website to revisit, no place to send friends.
+
+A simple site with your products, your story, and a contact
+form turns a one-time visitor into a repeat customer and
+a walking referral.
+
+I build these for local boutiques in Northern Michigan.
+Fast to build, easy for you to maintain, and designed to
+make your shop feel as special online as it does in person.
+
+Want to see what [Shop Name] could look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> The "one-time visitor" frame reframes the lost sale from their perspective — they like you but can't find you again.</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">09</div>
+      <div class="email-meta"><h3>Bed &amp; Breakfast / Inn</h3><div class="sub">Listed on Booking.com or just Facebook, no direct booking site</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Direct Bookings</span><span class="tag">Margin</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 09 &nbsp;·&nbsp; B&amp;B / Inn</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: [Inn Name] — you're paying 15% commission you don't have to</span>
+
+Hey [First Name],
+
+Every booking that comes through a third-party platform
+costs you 15% or more in commission. A direct booking
+site changes that — same guest, zero fee.
+
+Right now [Inn Name] doesn't have its own site for direct
+bookings. That means every room you fill through a platform
+is a room you filled for 85 cents on the dollar.
+
+I set up clean, trustworthy booking sites for B&Bs and inns
+in Northern Michigan — with photos, amenities, your story,
+and a direct booking button that puts the full rate in your pocket.
+
+Can I show you a quick mockup of what yours would look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> The 15% commission number is specific and immediately quantifies the pain in dollars — the strongest possible frame for this business type.</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">10</div>
+      <div class="email-meta"><h3>Contractor / Home Builder</h3><div class="sub">Project-based, referral-only pipeline</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Portfolio</span><span class="tag">High Ticket</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 10 &nbsp;·&nbsp; Contractor</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Your best work isn't visible to anyone looking for a contractor in Petoskey</span>
+
+Hey [First Name],
+
+The homes and projects [Business Name] has built around
+Northern Michigan deserve to be seen. Right now, the only
+people who know about your work are the ones you told.
+
+A clean portfolio site with photos of your builds, your
+service area, and a "start a project" form can bring in
+qualified leads from people planning renovations or new
+builds in the area — without waiting for a referral.
+
+I build portfolio sites for contractors that look high-end,
+load fast, and work perfectly on mobile (because that's
+where homeowners browse).
+
+Worth 15 minutes to see what yours could look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "Your best work isn't visible" triggers pride — contractors take quality personally. That pride becomes motivation to act.</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">11</div>
+      <div class="email-meta"><h3>Massage Therapist / Spa</h3><div class="sub">Appointment only, no online booking</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Wellness Tourism</span><span class="tag">Online Booking</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 11 &nbsp;·&nbsp; Massage / Spa</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Visitors coming to Northern Michigan are searching for exactly what you offer</span>
+
+Hey [First Name],
+
+People planning getaways to Harbor Springs and Petoskey
+research everything in advance — including where they'll
+get a massage or spa treatment. If [Business Name] isn't
+showing up online with a booking option, they're clicking
+on someone who is.
+
+A simple site with your services, your rates, a photo or
+two, and an online booking button is all you need to start
+capturing that traffic.
+
+I set these up for wellness businesses in Northern Michigan —
+simple, calm, and designed to feel as relaxing as your work.
+
+Can I put together a quick look at what yours could be?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> Lead with the specific travel planning behavior. Spa clients are among the most intent-driven searchers — they want to book before they arrive.</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">12</div>
+      <div class="email-meta"><h3>Yoga / Fitness Studio</h3><div class="sub">Schedule posted on paper or Facebook only</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Schedule Visibility</span><span class="tag">Community</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 12 &nbsp;·&nbsp; Yoga Studio</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: New residents in Petoskey are looking for a studio — can they find yours?</span>
+
+Hey [First Name],
+
+Every new person who moves to the Petoskey area and wants
+to find a yoga or fitness community Googles it. If
+[Studio Name] doesn't have a website with your schedule,
+pricing, and class descriptions, they're signing up
+somewhere else.
+
+A simple site makes it easy for people to find you, see
+what you offer, and show up — without having to dig through
+a Facebook page to find the schedule.
+
+I build these for local studios quickly and affordably.
+I'd love to sketch out what [Studio Name]'s could look like.
+
+Interested in a quick look?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "New residents" is a high-intent searcher who has no existing loyalty — they'll go to whoever is easiest to find.</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">13</div>
+      <div class="email-meta"><h3>Pet Groomer</h3><div class="sub">Phone booking only, limited visibility</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Local Search</span><span class="tag">Trust Signals</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 13 &nbsp;·&nbsp; Pet Groomer</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Pet owners near Harbor Springs are searching — and not finding [Business Name]</span>
+
+Hey [First Name],
+
+Pet owners are protective of who handles their animals.
+Before they call, they Google — they want to see photos
+of your work, read what other pet owners say, and get
+a feel for the place.
+
+Without a website, [Business Name] has no way to build
+that trust before the first call. People end up calling
+whoever has the most online presence — even if you're better.
+
+A simple site with before/after photos, your services,
+and a "book a groom" form changes the entire first impression.
+
+I'd love to put one together for you and show you what
+it could look like — no cost to see the mockup.
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> The emotional angle of pet trust is strong. Pet owners research more than almost any other local service customer.</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">14</div>
+      <div class="email-meta"><h3>Florist</h3><div class="sub">Walk-in only, phone orders, no online ordering</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Event Bookings</span><span class="tag">Online Orders</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 14 &nbsp;·&nbsp; Florist</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Weddings and events in Northern Michigan — they're booking flowers online</span>
+
+Hey [First Name],
+
+Couples planning weddings around Harbor Springs and Petoskey
+research vendors online months in advance. If [Shop Name]
+doesn't have a site showing your arrangements and style,
+they're not calling — they're booking the florist who
+showed up in their Pinterest search.
+
+A beautiful one-page site with your work, your arrangements
+by occasion, and a "request a quote" form puts you in front
+of exactly that audience.
+
+I'd love to pull together a quick look at what [Shop Name]'s
+site could be — showcasing your work the way it deserves to be seen.
+
+Want to take a look?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> Wedding leads are the highest-value florist clients. Lead with that specific use case to hook the right pain point immediately.</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">15</div>
+      <div class="email-meta"><h3>Antique / Vintage Shop</h3><div class="sub">In-store only, no inventory online</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Discovery</span><span class="tag">Out-of-Town Buyers</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 15 &nbsp;·&nbsp; Antique Shop</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Collectors are searching for shops like [Shop Name] — from hundreds of miles away</span>
+
+Hey [First Name],
+
+Antique and vintage shoppers are some of the most active
+researchers on the internet. They plan road trips around
+shops — but only the ones they can find online.
+
+Right now [Shop Name] isn't showing up for people searching
+"antique shops near Petoskey" or "vintage stores Harbor Springs."
+That's out-of-town traffic with money to spend, going somewhere else.
+
+A simple site with photos of your current pieces, your hours,
+and your location is enough to get those shoppers planning a
+trip specifically to visit you.
+
+Can I sketch out what yours would look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "Road trip" buyers are high-intent and high-value. Antique shop owners often don't realize their customer could be driving 2 hours to find them.</div>
+  </div>
+
+  <!-- 16 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">16</div>
+      <div class="email-meta"><h3>Photography Studio / Photographer</h3><div class="sub">Portfolio only on Instagram or Facebook</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Portfolio</span><span class="tag">Wedding / Event</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 16 &nbsp;·&nbsp; Photographer</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Couples searching for a photographer in Northern Michigan can't find you</span>
+
+Hey [First Name],
+
+When someone searches "wedding photographer Petoskey" or
+"portrait photographer Harbor Springs," they expect to land
+on a website — portfolio, pricing, packages, and a "book me" button.
+
+If [Your Name / Studio Name] only has Instagram, they're
+moving on to the next result. Social pages don't rank on Google.
+
+I build portfolio sites for photographers that are fast,
+beautiful, and show up in local searches — so your best
+work is the first thing potential clients see, not the
+15th scroll down an Instagram grid.
+
+Want me to put together a quick concept for yours?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "Social pages don't rank on Google" is a fact most photographers genuinely don't know. Education = authority.</div>
+  </div>
+
+  <!-- 17 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">17</div>
+      <div class="email-meta"><h3>Boat Repair / Marine Service</h3><div class="sub">Seasonal, word-of-mouth at the marina</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Seasonal Urgency</span><span class="tag">High Ticket</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 17 &nbsp;·&nbsp; Boat / Marine</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Boat owners on Lake Michigan are searching for repair services — before spring</span>
+
+Hey [First Name],
+
+Boat owners around Little Traverse Bay start looking
+for repair and maintenance services in late winter —
+planning ahead for the season. They Google, they compare,
+they call whoever looks the most established and trustworthy.
+
+Without a website, [Business Name] isn't in that pre-season
+research. You're only getting calls from people who already
+know you — not new boat owners in the area.
+
+A simple site with your services, your certifications,
+and a contact form gets you into those early conversations
+while the competition is still just word-of-mouth.
+
+Can I put together a quick look at what yours could be?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> The pre-season research window is a real behavior in marine. Lead with the timing angle to create urgency without being pushy.</div>
+  </div>
+
+  <!-- 18 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">18</div>
+      <div class="email-meta"><h3>Tour Guide / Outdoor Adventure</h3><div class="sub">Listed on TripAdvisor or Airbnb Experiences only</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Commission-Free</span><span class="tag">Direct Bookings</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 18 &nbsp;·&nbsp; Tour / Adventure Guide</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: [Business Name] — every booking through a platform costs you money you didn't have to spend</span>
+
+Hey [First Name],
+
+Visitors to Northern Michigan are planning kayaking, hiking,
+and fishing trips months out. They start on Google —
+not TripAdvisor. If [Business Name] only shows up on
+third-party platforms, you're paying commission on every
+booking that could have come to you directly.
+
+A simple site with your tours, your photos, and a direct
+"book now" option lets you own that customer relationship
+and keep the full rate.
+
+I set these up for outdoor guide businesses — clean,
+adventure-focused, and built to show up in Northern Michigan
+travel searches.
+
+Want me to put together a quick look?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> Commission fees are an instant hook. Guide businesses often don't realize how much they're giving away — make the math feel real.</div>
+  </div>
+
+  <!-- 19 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">19</div>
+      <div class="email-meta"><h3>Painter / Interior Decorator</h3><div class="sub">Referral only, no portfolio online</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Portfolio</span><span class="tag">Seasonal Projects</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 19 &nbsp;·&nbsp; Painter / Decorator</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Homeowners planning summer projects in Petoskey are Googling painters right now</span>
+
+Hey [First Name],
+
+Every spring, homeowners in the Petoskey and Harbor Springs
+area start planning summer projects. They Google painters and
+decorators, look at portfolios, and call the ones who look
+established and professional.
+
+[Business Name] doesn't show up in those searches — and
+there's no place to see your work online. That's qualified
+leads with summer budgets going to competitors.
+
+A simple portfolio site with your before/afters, your
+services, and a "get a quote" form puts you in front of
+exactly those homeowners.
+
+Want me to sketch out what yours could look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> Seasonal project planning is a real behavior — and mentioning "summer budgets" makes the money feel tangible.</div>
+  </div>
+
+  <!-- 20 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">20</div>
+      <div class="email-meta"><h3>Childcare / Daycare Center</h3><div class="sub">Known locally, no online info available</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Trust</span><span class="tag">New Families</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 20 &nbsp;·&nbsp; Daycare / Childcare</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: New families moving to Petoskey can't find [Center Name] online</span>
+
+Hey [First Name],
+
+When a family moves to the Petoskey area and starts
+looking for childcare, the first thing they do is Google.
+They want to see photos of the space, read about your
+approach, check your hours and age groups — before they
+ever pick up the phone.
+
+Without a website, [Center Name] can't make that first
+impression. New families are ending up at places that
+feel more visible and established online.
+
+A simple, warm site with your philosophy, your photos,
+your schedule, and a "schedule a tour" form gives new
+families the confidence to reach out.
+
+Can I show you what that could look like for [Center Name]?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> Parents are the most research-intensive buyers of any local service. They need trust signals before any other business type.</div>
+  </div>
+
+  <!-- 21 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">21</div>
+      <div class="email-meta"><h3>Real Estate Agent (Independent)</h3><div class="sub">Reliant on brokerage site, no personal brand site</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Personal Brand</span><span class="tag">Lead Gen</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 21 &nbsp;·&nbsp; Real Estate Agent</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Buyers relocating to Northern Michigan are searching for local agents — by name</span>
+
+Hey [First Name],
+
+People relocating to the Harbor Springs and Petoskey area
+search for local real estate agents specifically. They want
+someone who knows the area, has reviews, and feels approachable
+before the first call.
+
+Relying on your brokerage site puts you behind a logo —
+not a person. A personal site with your listings, your
+story, your Northern Michigan expertise, and a "let's talk"
+form builds the trust that converts a searcher into a lead.
+
+I build personal brand sites for independent agents —
+clean, professional, and built to rank for searches in
+your local market.
+
+Want to see what yours could look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "Behind a logo — not a person" is a reframe that hits agents who've thought about personal branding but haven't acted on it yet.</div>
+  </div>
+
+  <!-- 22 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">22</div>
+      <div class="email-meta"><h3>Fishing Charter / Guide</h3><div class="sub">Booking via phone or Facebook only</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Direct Bookings</span><span class="tag">Pre-Trip Research</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 22 &nbsp;·&nbsp; Fishing Charter</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Anglers planning trips to Lake Michigan are booking guides online — months ahead</span>
+
+Hey [First Name],
+
+Fishing trips to Little Traverse Bay and Lake Michigan get
+booked far in advance. Serious anglers Google "fishing charters
+Petoskey" or "Lake Michigan charter boat harbor springs"
+and book with whoever looks established and has a clear
+rates page and "book now" button.
+
+Right now [Charter Name] doesn't show up in those searches.
+You're only getting the people who already heard about you
+— not the out-of-state anglers with trip budgets.
+
+A simple charter site with your species, your rates,
+your photos, and a booking form captures that audience
+before anyone else does.
+
+Can I put together a look at what that would be for you?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "Out-of-state anglers with trip budgets" paints a clear high-value customer they're currently missing — make them feel that gap.</div>
+  </div>
+
+  <!-- 23 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">23</div>
+      <div class="email-meta"><h3>Ice Cream / Dessert Shop</h3><div class="sub">Seasonal, foot traffic dependent</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Google Maps</span><span class="tag">Impulse Search</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 23 &nbsp;·&nbsp; Ice Cream Shop</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: "Ice cream near Harbor Springs" — is [Shop Name] showing up?</span>
+
+Hey [First Name],
+
+On a hot summer day, families in Harbor Springs pull out
+their phones and search "ice cream near me."
+
+If [Shop Name] doesn't have a website and a complete
+Google Business profile, you're not showing up in that
+search — and those families are walking to whoever does.
+
+A simple one-page site with your flavors, your hours,
+your location, and a photo or two is all it takes to
+show up and drive that foot traffic.
+
+I build these fast and keep them simple. I'd love to
+put together a quick look for [Shop Name].
+
+Worth a quick conversation?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> The "hot summer day" scenario is vivid and hyper-local. Short email works well here — it matches the impulse nature of the business.</div>
+  </div>
+
+  <!-- 24 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">24</div>
+      <div class="email-meta"><h3>Accounting / Bookkeeping (Local Firm)</h3><div class="sub">Established but no modern web presence</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Authority</span><span class="tag">New Business Owners</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 24 &nbsp;·&nbsp; Accounting Firm</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: New business owners in Petoskey are searching for a local accountant — online</span>
+
+Hey [First Name],
+
+Every new business that opens in the Petoskey area —
+restaurants, shops, contractors, service providers —
+needs a local accountant. The first thing they do is Google.
+
+Right now [Firm Name] isn't showing up with a professional
+web presence that communicates your experience, your services,
+and your local roots. That's new clients going to whoever
+looks more established online.
+
+A clean, professional site with your services, your team,
+and a "schedule a consultation" form is what modern clients
+expect — and it's how they decide who to trust.
+
+Can I show you what [Firm Name]'s could look like?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> Anchor to their ideal customer's behavior — new business owners are a constant, reliable stream of leads for any local accounting firm.</div>
+  </div>
+
+  <!-- 25 -->
+  <div class="email-block">
+    <div class="email-header">
+      <div class="biz-num">25</div>
+      <div class="email-meta"><h3>Veterinarian / Animal Clinic</h3><div class="sub">Known in community, outdated or no website</div></div>
+    </div>
+    <div class="tag-row"><span class="tag">Emergency Search</span><span class="tag">New Pet Owners</span></div>
+    <div class="email-card">
+      <div class="email-card-header"><span>Email 25 &nbsp;·&nbsp; Veterinarian</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+      <div class="email-body" data-email><span class="subj">Subject: Pet owners new to the Petoskey area are Googling vets — and can't find [Clinic Name]</span>
+
+Hey [First Name],
+
+When a family moves to the Petoskey or Harbor Springs area
+and has a pet, finding a trusted local vet is one of the
+first things they do. They Google, they look at websites
+and reviews, and they call whoever feels the most welcoming
+and established.
+
+Right now [Clinic Name] doesn't have a site that shows
+your team, your services, and what makes your practice
+the right choice. New pet owners in the area are going
+to whoever is easiest to find online.
+
+A warm, professional site with your team, your services,
+your hours, and an "new patient" form makes that first
+connection before the first call.
+
+Want to see what that could look like for [Clinic Name]?
+
+— Manny
+The AI Syndicate
+withmanny1587@gmail.com</div>
+    </div>
+    <div class="tip"><strong>Hook:</strong> "New pet owners" is recurring demand — people move to the area constantly. This frames you as helping them solve an ongoing problem, not a one-time need.</div>
+  </div>
+
+  <!-- FOLLOW-UPS -->
+  <div class="followup-section">
+    <div class="section-divider">
+      <h2>Follow-Up Sequences</h2>
+      <p>Send follow-up #1 on day 3 if no reply. Follow-up #2 on day 7. Most closes happen here.</p>
+    </div>
+
+    <div class="fu-grid">
+
+      <div class="email-block">
+        <div class="email-header">
+          <div class="biz-num">F1</div>
+          <div class="email-meta"><h3>Follow-Up #1 — Day 3</h3><div class="sub">No reply after initial email</div></div>
+        </div>
+        <div class="tag-row"><span class="tag">Social Proof</span><span class="tag">Low Pressure</span></div>
+        <div class="email-card">
+          <div class="email-card-header"><span>Follow-Up 1 &nbsp;·&nbsp; Day 3</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+          <div class="email-body" data-email><span class="subj">Subject: Re: [Original subject line]</span>
+
+Hey [First Name] — just bumping this up.
+
+I sent a similar note to a few other local businesses
+this week. One of them — a [similar business type] in
+[Petoskey / Harbor Springs] — took a look at the mockup
+and booked a session. Their site goes live next week.
+
+Still happy to put together a quick look for [Business Name]
+if the timing's right.
+
+No pressure either way.
+
+— Manny</div>
+        </div>
+        <div class="tip"><strong>Why it works:</strong> Named social proof from a peer business in their own market. "No pressure" removes fear of commitment. Under 60 words — easy to read on a phone.</div>
+      </div>
+
+      <div class="email-block">
+        <div class="email-header">
+          <div class="biz-num">F2</div>
+          <div class="email-meta"><h3>Follow-Up #2 — Day 7</h3><div class="sub">Still no reply — final touch</div></div>
+        </div>
+        <div class="tag-row"><span class="tag">Scarcity</span><span class="tag">Soft Close</span></div>
+        <div class="email-card">
+          <div class="email-card-header"><span>Follow-Up 2 &nbsp;·&nbsp; Day 7</span><button class="copy-btn" onclick="copyEmail(this)">Copy</button></div>
+          <div class="email-body" data-email><span class="subj">Subject: Last note on this — [Business Name]</span>
+
+Hey [First Name],
+
+Last follow-up from me on this — I don't want to clog
+your inbox.
+
+I'm taking on a few local Northern Michigan businesses
+this month to get their online presence set up before
+summer hits. Once those spots fill I'm switching
+to other projects.
+
+If the timing ever feels right, you can always reach me
+at withmanny1587@gmail.com or just reply here.
+
+Hope the season's good to you.
+
+— Manny
+The AI Syndicate</div>
+        </div>
+        <div class="tip"><strong>Why it works:</strong> Real scarcity ("before summer hits") tied to a local season. Closes the loop without burning the bridge — they can come back. Warmth at the end builds likeability over the sequence.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HOW TO USE BOX -->
+  <div class="howto-box">
+    <h2>Quick Reference — How to Use These</h2>
+    <div class="howto-grid">
+      <div class="howto-item">
+        <strong>Finding no-website businesses</strong>
+        <p>Search Google Maps for each business type + "Harbor Springs" or "Petoskey." Businesses with no website link on their listing are your targets.</p>
+      </div>
+      <div class="howto-item">
+        <strong>Getting their email</strong>
+        <p>Check their Google Business profile, Facebook page About section, or call and ask for the owner's email. "I have something I'd like to send [Owner] — what's the best email?"</p>
+      </div>
+      <div class="howto-item">
+        <strong>Subject line is everything</strong>
+        <p>The subject lines here are already written for open rates. Don't change them unless you have a specific detail to add. Keep the business name in the subject — it doubles open rates.</p>
+      </div>
+      <div class="howto-item">
+        <strong>Personalizing each email</strong>
+        <p>Replace every bracket: [First Name], [Business Name]. Then add one sentence of real observation — something you noticed on their Google listing or Facebook. That one sentence is what separates you from spam.</p>
+      </div>
+      <div class="howto-item">
+        <strong>What to offer in reply</strong>
+        <p>When they say "sure, show me" — send a one-page mockup or a Loom video walkthrough of what their site could look like. Then close with the $197 session to build it together.</p>
+      </div>
+      <div class="howto-item">
+        <strong>Tracking your outreach</strong>
+        <p>Keep a simple spreadsheet: Business Name | Owner | Email | Date Sent | Follow-up 1 | Follow-up 2 | Status. Work through all 25 before circling back on replies.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    <a href="index.html">&larr; The AI Syndicate</a> &nbsp;·&nbsp;
+    Local Business Outreach — Harbor Springs &amp; Petoskey, MI &nbsp;·&nbsp;
+    <a href="sales-script.html">Sales Scripts</a> &nbsp;·&nbsp;
+    &copy; 2026 The AI Syndicate with Manny
+  </p>
+</footer>
+
+<script>
+  function copyEmail(btn) {
+    const body = btn.closest('.email-card').querySelector('[data-email]');
+    navigator.clipboard.writeText(body.innerText).then(() => {
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
