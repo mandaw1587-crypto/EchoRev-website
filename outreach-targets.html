@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outreach Target List — Harbor Springs & Petoskey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000;
+      --deep: #080808;
+      --card: #0f0f0f;
+      --card2: #141414;
+      --border: #1c1c1c;
+      --gold: #c9a84c;
+      --gold2: #e8c97a;
+      --text: #c4bfb4;
+      --muted: #555050;
+      --white: #fff;
+      --green: #2d6a40;
+      --green2: #3da85a;
+      --amber: #b87333;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2.5rem; border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .nav-brand { font-family: 'Playfair Display', serif; color: var(--gold2); font-size: 1rem; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase; }
+    .back-link { color: var(--muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .back-link:hover { color: var(--gold); }
+
+    .page-header { text-align: center; padding: 4rem 1.5rem 3rem; border-bottom: 1px solid rgba(201,168,76,0.08); position: relative; }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; position: relative; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 0.75rem; position: relative; }
+    .page-header h1 span { color: var(--gold2); }
+    .page-header p { color: var(--muted); max-width: 580px; margin: 0 auto; font-size: 0.92rem; line-height: 1.7; position: relative; }
+    .gold-line { width: 60px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 1.25rem auto; }
+
+    .stats-strip { background: var(--deep); border-bottom: 1px solid rgba(201,168,76,0.07); padding: 1.5rem; }
+    .stats-inner { max-width: 700px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; text-align: center; }
+    .stat strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--gold2); line-height: 1; }
+    .stat span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    .layout { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+
+    .how-to-box {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px; padding: 1.75rem 2rem; margin-bottom: 3rem;
+    }
+    .how-to-box h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 1rem; }
+    .steps { display: flex; flex-direction: column; gap: 0.6rem; }
+    .step-item { display: flex; gap: 0.85rem; align-items: flex-start; }
+    .step-n { flex-shrink: 0; width: 22px; height: 22px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; color: var(--gold); margin-top: 0.15rem; }
+    .step-item p { color: var(--muted); font-size: 0.84rem; line-height: 1.6; margin: 0; }
+    .step-item p strong { color: var(--text); }
+    .step-item p a { color: var(--gold); }
+
+    .section-head { margin: 2.5rem 0 1.25rem; }
+    .section-head h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--white); }
+    .section-head p { color: var(--muted); font-size: 0.84rem; margin-top: 0.25rem; }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; border-radius: 6px; border: 1px solid var(--border); margin-bottom: 2.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    thead tr { background: rgba(201,168,76,0.06); border-bottom: 1px solid rgba(201,168,76,0.15); }
+    thead th { padding: 0.75rem 1rem; text-align: left; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--card2); }
+    td { padding: 0.85rem 1rem; color: var(--text); vertical-align: top; }
+    td.num { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-align: center; width: 40px; }
+    td.biz { font-weight: 600; color: var(--white); }
+    td.type { color: var(--muted); font-size: 0.78rem; }
+    td.location { font-size: 0.78rem; color: var(--muted); }
+    td.phone { font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; white-space: nowrap; }
+    td.contact { font-size: 0.76rem; }
+    td.contact a { color: var(--gold); text-decoration: none; }
+    td.contact a:hover { text-decoration: underline; }
+    td.status { white-space: nowrap; }
+    td.email-link { white-space: nowrap; }
+    td.email-link a { color: var(--gold2); text-decoration: none; font-size: 0.75rem; font-weight: 700; border: 1px solid rgba(201,168,76,0.25); padding: 0.2rem 0.55rem; border-radius: 2px; }
+    td.email-link a:hover { background: rgba(201,168,76,0.08); }
+    td.track { text-align: center; font-size: 0.7rem; }
+
+    .badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 2px; }
+    .badge-confirmed { background: rgba(61,168,90,0.12); border: 1px solid rgba(61,168,90,0.3); color: #3da85a; }
+    .badge-verify { background: rgba(184,115,51,0.12); border: 1px solid rgba(184,115,51,0.3); color: #e8943a; }
+    .badge-maps { background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.2); color: var(--gold); }
+
+    .track-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--border); display: inline-block; }
+
+    /* GOOGLE MAPS SECTION */
+    .maps-box {
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px; padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .maps-box h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 0.75rem; }
+    .maps-box p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; margin-bottom: 1rem; }
+    .search-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .search-item { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: rgba(201,168,76,0.7); background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.12); border-radius: 3px; padding: 0.4rem 0.75rem; }
+
+    .blank-row-info { color: var(--muted); font-size: 0.82rem; margin-bottom: 1.25rem; font-style: italic; }
+
+    footer { border-top: 1px solid rgba(201,168,76,0.08); padding: 2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.78rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .stats-inner { gap: 1.5rem; }
+      td { padding: 0.65rem 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">The AI Syndicate</a>
+  <a href="outreach-emails.html" class="back-link">&larr; Back to Emails</a>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">Cold Outreach &nbsp;·&nbsp; Harbor Springs &amp; Petoskey, MI</p>
+  <h1>25 Local Business<br/><span>Target List</span></h1>
+  <div class="gold-line"></div>
+  <p>Researched local businesses with no dedicated website. Use the email template from the Outreach Emails page for each business type. Track your sends below.</p>
+</div>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><strong>13</strong><span>Confirmed no website</span></div>
+    <div class="stat"><strong>12</strong><span>Find via Google Maps</span></div>
+    <div class="stat"><strong>25</strong><span>Total targets</span></div>
+    <div class="stat"><strong>$197</strong><span>Per close</span></div>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="how-to-box">
+    <h2>How to Use This List</h2>
+    <div class="steps">
+      <div class="step-item"><div class="step-n">1</div><p><strong>Find their email.</strong> Check the Facebook page "About" tab first. If not there, call the number and ask: "I have something I'd like to email the owner — what's the best address?"</p></div>
+      <div class="step-item"><div class="step-n">2</div><p><strong>Pick the right email template.</strong> Go to <a href="outreach-emails.html">outreach-emails.html</a> and find the matching business type. Copy the template, swap in the owner name and business name.</p></div>
+      <div class="step-item"><div class="step-n">3</div><p><strong>Add one real observation.</strong> Something you actually noticed — "I saw you're only listed on Facebook" or "I noticed you don't show up on Google Maps with a website." One sentence. This is what separates your email from spam.</p></div>
+      <div class="step-item"><div class="step-n">4</div><p><strong>Track your sends.</strong> Use the columns below — Date Sent, Follow-Up 1 (Day 3), Follow-Up 2 (Day 7), and Status.</p></div>
+      <div class="step-item"><div class="step-n">5</div><p><strong>For the 12 blank slots,</strong> use the Google Maps searches listed at the bottom of this page to find more no-website businesses and add them to the list.</p></div>
+    </div>
+  </div>
+
+  <!-- CONFIRMED TARGETS TABLE -->
+  <div class="section-head">
+    <h2>Confirmed No-Website Businesses</h2>
+    <p>Researched and verified — these businesses have no dedicated website as of June 2026.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Business Name</th>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Phone</th>
+          <th>Online Presence</th>
+          <th>Status</th>
+          <th>Date Sent</th>
+          <th>F/U 1</th>
+          <th>F/U 2</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="num">01</td>
+          <td class="biz">KS Kleaning Services LLC</td>
+          <td class="type">Cleaning / Vacation Rentals</td>
+          <td class="location">215 Stags Run, Harbor Springs</td>
+          <td class="phone">(231) 838-4943</td>
+          <td class="contact"><a href="https://www.facebook.com/KSKleans" target="_blank">Facebook Only</a><br><span style="color:var(--muted);font-size:0.72rem;">Owner: Kristine Sellers</span></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">02</td>
+          <td class="biz">Cuts By The Bay Barbershop</td>
+          <td class="type">Barbershop</td>
+          <td class="location">1121 US 31 N #2, Petoskey</td>
+          <td class="phone">(231) 262-3871</td>
+          <td class="contact"><a href="https://www.facebook.com/cutsbythebaypetoskey/" target="_blank">Facebook + Instagram</a><br><span style="color:var(--muted);font-size:0.72rem;">No dedicated website</span></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">03</td>
+          <td class="biz">Dairy Zone</td>
+          <td class="type">Ice Cream / Soft Serve</td>
+          <td class="location">2264 M-119, Petoskey</td>
+          <td class="phone">(231) 753-2972</td>
+          <td class="contact"><a href="https://www.facebook.com/DairyZonePetoskey/" target="_blank">Facebook Only</a></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">04</td>
+          <td class="biz">Tru-Shine Cleaning Co.</td>
+          <td class="type">Cleaning Service</td>
+          <td class="location">Petoskey area</td>
+          <td class="phone">—</td>
+          <td class="contact"><a href="https://www.facebook.com/northernmichigancleaningco/" target="_blank">Facebook Only</a></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">05</td>
+          <td class="biz">Longton Hall Antiques</td>
+          <td class="type">Antique Shop</td>
+          <td class="location">329 Bay St, Petoskey</td>
+          <td class="phone">(231) 347-9672</td>
+          <td class="contact">Yelp + Directories only<br><span style="color:var(--muted);font-size:0.72rem;">No website found</span></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">06</td>
+          <td class="biz">Lucky's Clip Shop</td>
+          <td class="type">Barbershop</td>
+          <td class="location">319 W Mitchell St, Petoskey</td>
+          <td class="phone">(231) 330-8863</td>
+          <td class="contact"><a href="https://www.facebook.com/LuckysClipShop/" target="_blank">Facebook Only</a></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">07</td>
+          <td class="biz">Candy Harbor</td>
+          <td class="type">Ice Cream &amp; Candy Shop</td>
+          <td class="location">4213 Main St, Petoskey (Bay Harbor)</td>
+          <td class="phone">(231) 753-2725</td>
+          <td class="contact"><a href="https://www.facebook.com/p/Candy-Harbor-100039263509759/" target="_blank">Facebook Only</a></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">08</td>
+          <td class="biz">Jose's Authentic Mexican Restaurant</td>
+          <td class="type">Restaurant</td>
+          <td class="location">309 Petoskey St, Petoskey</td>
+          <td class="phone">(231) 348-3299</td>
+          <td class="contact"><a href="https://www.facebook.com/jJosespetoskey/" target="_blank">Facebook Only</a></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">09</td>
+          <td class="biz">Petoskey Antiques</td>
+          <td class="type">Antique Shop</td>
+          <td class="location">1187 N US-31, Petoskey</td>
+          <td class="phone">(989) 370-3640</td>
+          <td class="contact"><a href="https://www.facebook.com/p/Petoskey-Antiques-100063564131619/" target="_blank">Facebook Only</a></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">10</td>
+          <td class="biz">Petoskey Towing &amp; Recovery Inc</td>
+          <td class="type">Towing / Auto Recovery</td>
+          <td class="location">58 Bridge St, Petoskey</td>
+          <td class="phone">(231) 347-1803</td>
+          <td class="contact"><a href="https://www.facebook.com/p/Petoskey-Towing-Recovery-Inc-100057476566781/" target="_blank">Facebook Only</a><br><span style="color:var(--muted);font-size:0.72rem;">petoskeytowing@gmail.com</span></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">11</td>
+          <td class="biz">Maid in Harbor Springs LLC</td>
+          <td class="type">Cleaning / Maid Service</td>
+          <td class="location">Harbor Springs</td>
+          <td class="phone">(231) 838-1846</td>
+          <td class="contact"><a href="https://www.facebook.com/maidinharborsprings/" target="_blank">Facebook Only</a><br><span style="color:var(--muted);font-size:0.72rem;">maidinharborsprings@gmail.com</span></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">12</td>
+          <td class="biz">Joseph's World Art &amp; Antiques</td>
+          <td class="type">Art &amp; Antique Gallery</td>
+          <td class="location">2860 Charlevoix Ave, Petoskey</td>
+          <td class="phone">(231) 347-0121</td>
+          <td class="contact"><a href="https://www.facebook.com/JosephsWorldGallery/" target="_blank">Facebook Only</a></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+        <tr>
+          <td class="num">13</td>
+          <td class="biz">Palace Barber Shop</td>
+          <td class="type">Barbershop</td>
+          <td class="location">419 Howard St, Petoskey</td>
+          <td class="phone">(231) 347-4252</td>
+          <td class="contact">Directory listings only<br><span style="color:var(--muted);font-size:0.72rem;">No dedicated website</span></td>
+          <td class="status"><span class="badge badge-confirmed">Confirmed</span></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+          <td class="track"><div class="track-dot"></div></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BLANK ROWS FOR GOOGLE MAPS FINDS -->
+  <div class="section-head">
+    <h2>Spots 14–25 — Fill From Google Maps</h2>
+    <p>Use the searches below to find 12 more. Look for businesses with no website link on their Google Maps listing.</p>
+  </div>
+
+  <p class="blank-row-info">Add business name, phone, and Facebook link as you find them. Then pick the matching email template from outreach-emails.html.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Business Name</th>
+          <th>Type</th>
+          <th>Location / Address</th>
+          <th>Phone</th>
+          <th>Online Presence</th>
+          <th>Status</th>
+          <th>Date Sent</th>
+          <th>F/U 1</th>
+          <th>F/U 2</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">14</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">15</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">16</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">17</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">18</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">19</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">20</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">21</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">22</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">23</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">24</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+        <tr><td class="num">25</td><td class="biz" style="color:var(--muted)">— add from Google Maps —</td><td class="type"></td><td class="location"></td><td class="phone"></td><td class="contact"></td><td class="status"><span class="badge badge-maps">Find via Maps</span></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td><td class="track"><div class="track-dot"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GOOGLE MAPS SEARCH GUIDE -->
+  <div class="maps-box">
+    <h2>How to Find the Remaining 12 on Google Maps</h2>
+    <p>Open Google Maps and search each of these terms. Look for listings that have a phone number but <strong>no website link</strong> — those are your targets. Click the listing and check the left panel. If you only see a phone number and no "Website" button, they're in.</p>
+    <div class="search-list">
+      <div class="search-item">restaurant harbor springs michigan</div>
+      <div class="search-item">cafe diner harbor springs michigan</div>
+      <div class="search-item">hair salon petoskey michigan</div>
+      <div class="search-item">cleaning service harbor springs michigan</div>
+      <div class="search-item">landscaping lawn care harbor springs michigan</div>
+      <div class="search-item">painter painting contractor petoskey michigan</div>
+      <div class="search-item">plumber petoskey michigan</div>
+      <div class="search-item">electrician harbor springs michigan</div>
+      <div class="search-item">handyman petoskey michigan</div>
+      <div class="search-item">auto repair harbor springs michigan</div>
+      <div class="search-item">boutique clothing harbor springs michigan</div>
+      <div class="search-item">gift shop harbor springs michigan</div>
+      <div class="search-item">bed breakfast harbor springs michigan</div>
+      <div class="search-item">fishing guide charter petoskey michigan</div>
+      <div class="search-item">pet groomer petoskey michigan</div>
+      <div class="search-item">massage therapist harbor springs michigan</div>
+      <div class="search-item">yoga studio fitness petoskey michigan</div>
+      <div class="search-item">photographer harbor springs michigan</div>
+      <div class="search-item">florist petoskey michigan</div>
+      <div class="search-item">contractor remodeling petoskey michigan</div>
+    </div>
+  </div>
+
+  <div class="maps-box" style="margin-bottom:0;">
+    <h2>What to Look For on Each Listing</h2>
+    <p>When you open a Google Maps listing, the left panel shows: <strong>Phone</strong>, <strong>Website</strong>, <strong>Directions</strong>, <strong>Hours</strong>. If there is <strong>no "Website" button</strong>, or if clicking it goes to a Facebook page — that business is your target.</p>
+    <p style="margin-top:0.75rem;">Also look for listings where the only web presence is a Facebook URL in the "Website" field — Facebook pages are not real websites and do not rank on Google. These are prime opportunities.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    <a href="index.html">&larr; The AI Syndicate</a> &nbsp;·&nbsp;
+    <a href="outreach-emails.html">Outreach Email Templates</a> &nbsp;·&nbsp;
+    <a href="sales-script.html">Sales Scripts</a> &nbsp;·&nbsp;
+    &copy; 2026 The AI Syndicate with Manny
+  </p>
+</footer>
+
+</body>
+</html>
