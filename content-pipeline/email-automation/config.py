@@ -12,19 +12,8 @@ SENDER_NAME = os.getenv("SENDER_NAME", "EchoRev")
 CITIES = [
     "Harbor Springs, MI",
     "Petoskey, MI",
-    "Charlevoix, MI",
     "Boyne City, MI",
-    "East Jordan, MI",
-    "Elk Rapids, MI",
-    "Traverse City, MI",
-    "Gaylord, MI",
-    "Bellaire, MI",
-    "Cadillac, MI",
-    "Cheboygan, MI",
-    "Rogers City, MI",
-    "Alpena, MI",
-    "Mancelona, MI",
-    "Torch Lake, MI",
+    "Charlevoix, MI",
 ]
 
 BUSINESS_TYPES = [
