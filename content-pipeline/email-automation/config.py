@@ -8,7 +8,24 @@ GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 SENDER_NAME = os.getenv("SENDER_NAME", "EchoRev")
 
-CITY = os.getenv("TARGET_CITY", "Your City, State")
+# Northern Michigan cities — rotated daily to cover the full region
+CITIES = [
+    "Traverse City, MI",
+    "Petoskey, MI",
+    "Gaylord, MI",
+    "Charlevoix, MI",
+    "Boyne City, MI",
+    "Cadillac, MI",
+    "Cheboygan, MI",
+    "Alpena, MI",
+    "Rogers City, MI",
+    "Elk Rapids, MI",
+    "Bellaire, MI",
+    "Mancelona, MI",
+    "East Jordan, MI",
+    "Harbor Springs, MI",
+    "Torch Lake, MI",
+]
 
 BUSINESS_TYPES = [
     "restaurant",

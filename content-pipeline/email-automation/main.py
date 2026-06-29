@@ -5,13 +5,17 @@ Runs daily via GitHub Actions. Finds local businesses, generates personalised
 """
 
 import random
-from config import BUSINESS_TYPES, CITY, DAILY_SEND_LIMIT
+from datetime import date
+from config import BUSINESS_TYPES, CITIES, DAILY_SEND_LIMIT
 from leads import search_businesses, enrich_leads
 from generate import generate_email_sequence, personalise
 from sender import send_email
 from tracker import already_contacted, add_contact, mark_sent, get_followups_due
 
 sent_today = 0
+
+# Rotate through Northern Michigan cities day by day
+CITY = CITIES[date.today().timetuple().tm_yday % len(CITIES)]
 
 
 def send_followups() -> int:
