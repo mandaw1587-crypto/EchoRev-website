@@ -10,20 +10,20 @@ SENDER_NAME = os.getenv("SENDER_NAME", "EchoRev")
 
 # Northern Michigan cities — rotated daily to cover the full region
 CITIES = [
-    "Traverse City, MI",
+    "Harbor Springs, MI",
     "Petoskey, MI",
-    "Gaylord, MI",
     "Charlevoix, MI",
     "Boyne City, MI",
+    "East Jordan, MI",
+    "Elk Rapids, MI",
+    "Traverse City, MI",
+    "Gaylord, MI",
+    "Bellaire, MI",
     "Cadillac, MI",
     "Cheboygan, MI",
-    "Alpena, MI",
     "Rogers City, MI",
-    "Elk Rapids, MI",
-    "Bellaire, MI",
+    "Alpena, MI",
     "Mancelona, MI",
-    "East Jordan, MI",
-    "Harbor Springs, MI",
     "Torch Lake, MI",
 ]
 
