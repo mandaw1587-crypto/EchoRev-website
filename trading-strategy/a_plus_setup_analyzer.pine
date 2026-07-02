@@ -1,0 +1,115 @@
+//@version=5
+// =============================================================================
+// A+ Setup Analyzer — REFERENCE SPECIFICATION
+// =============================================================================
+// NOTE ON PROVENANCE: The original a_plus_setup_analyzer.pine file was not
+// present in this repository when this port was built. This file is a
+// reconstruction written directly from the strategy brief supplied for the
+// Python port (indicators, structure rules, exact point weights, entry/exit
+// rules, stop/target formulas, sizing). It is the canonical source of truth
+// that strategy/*.py was ported from. Where the brief left a rule
+// underspecified (e.g. exact RSI band, near-structure distance, TP2/TP3
+// scale-out split), the choice made is called out in a comment tagged
+// [ASSUMPTION] here and mirrored in the Python docstrings/README. If you have
+// the real .pine file, diff it against this one and file the deltas — the
+// Python code should be updated to match the real source, not this
+// reconstruction.
+// =============================================================================
+indicator("A+ Setup Analyzer", overlay=true)
+
+// ---- Indicators -------------------------------------------------------------
+ema9   = ta.ema(close, 9)
+ema20  = ta.ema(close, 20)
+ema50  = ta.ema(close, 50)
+ema200 = ta.ema(close, 200)
+rsi14  = ta.rsi(close, 14)
+[macdLine, signalLine, histLine] = ta.macd(close, 12, 26, 9)
+atr14  = ta.atr(14)
+vwapD  = ta.vwap(hlc3)                    // daily anchor (resets each session)
+volSma20 = ta.sma(volume, 20)
+
+// ---- Market structure: pivots (5 bars left / 5 bars right) ------------------
+// A pivot is not known until 5 bars AFTER it forms — ta.pivothigh/pivotlow
+// return non-na only on the confirmation bar, which is what makes this
+// lookahead-safe. The Python port must apply the same lag explicitly.
+pivotHigh = ta.pivothigh(high, 5, 5)
+pivotLow  = ta.pivotlow(low, 5, 5)
+// Bullish structure = most recent confirmed pivot high > prior pivot high (HH)
+//                      AND most recent confirmed pivot low > prior pivot low (HL)
+// Bearish structure  = LH AND LL (mirrored)
+
+// ---- Fair Value Gaps (3-bar) -------------------------------------------------
+// Bullish FVG at bar i: low[i] > high[i-2]   (gap between candle i-2's high and candle i's low)
+// Bearish FVG at bar i: high[i] < low[i-2]
+// A gap stays "valid" (usable for scoring) for 10 bars after it forms, or
+// until price trades back through it, whichever comes first.
+
+// ---- Fake breakout detection --------------------------------------------------
+// Bearish fake breakout (rejection at resistance): bar's high pokes above the
+//   most recent confirmed pivot high, but the bar's close is back below it.
+// Bullish fake breakout (rejection at support): bar's low pokes below the
+//   most recent confirmed pivot low, but the bar's close is back above it.
+// A fake breakout AGAINST the candidate trade direction applies the -15
+// penalty (e.g. a bearish fake breakout penalizes a long setup near resistance).
+
+// ---- Higher-timeframe filter --------------------------------------------------
+// dailyClose > dailyEMA50  -> bullish HTF bias
+// dailyClose < dailyEMA50  -> bearish HTF bias
+// Uses only the last COMPLETED daily bar — never the still-forming session.
+
+// ---- Confluence score (0-100), computed separately for long and short ---------
+// Component                 Points   Condition (long case; short is mirrored)
+// ------------------------  ------   --------------------------------------------
+// Market structure            15     Confirmed HH+HL present (bullish structure)
+// EMA stack                   12     ema9 > ema20 > ema50 (full stack); partial
+//                                     credit (6) if only 2 of the 3 pairwise
+//                                     comparisons hold [ASSUMPTION: partial credit rule]
+// EMA200 trend filter         10     close > ema200
+// VWAP                         8     close > vwapD
+// RSI band                     8     RSI in [45,70] for longs, [30,55] for shorts
+//                                     [ASSUMPTION: exact band, "healthy not
+//                                     overbought/oversold" per brief]
+// MACD momentum                10     macdLine > signalLine and histLine > 0
+// Volume                       10     volume > 1.3 * volSma20 (full); volume >
+//                                     1.0 * volSma20 (half credit, 5)
+// Near-structure               10     close within 1.0*ATR of the most recent
+//                                     confirmed swing low (long) / swing high
+//                                     (short) [ASSUMPTION: 1.0*ATR distance]
+// Unfilled FVG                 7     A same-direction FVG formed within the
+//                                     last 10 bars and not yet filled, at/below
+//                                     current price (long) / at or above (short)
+// HTF alignment                10     dailyClose vs dailyEMA50 agrees with
+//                                     candidate direction
+// Fake breakout penalty       -15     Opposite-direction fake breakout on the
+//                                     current or immediately preceding bar
+// ------------------------  ------
+// Max positive score = 100. Score is clamped to [0, 100] after the penalty.
+
+// ---- Entry rule ---------------------------------------------------------------
+// score >= 85 AND riskReward >= 2.0 AND volume > 1.3 * volSma20,
+// evaluated ONLY on confirmed (closed) bars, entered on the NEXT bar's open.
+// 10-bar cooldown: no new signal is evaluated for 10 bars after the previous
+// signal bar, regardless of whether that signal was taken.
+
+// ---- Stop loss ------------------------------------------------------------------
+// Long:  stop = min(lastConfirmedPivotLow - 0.25*ATR, close - 1.5*ATR)
+// Short: stop = max(lastConfirmedPivotHigh + 0.25*ATR, close + 1.5*ATR)
+// (min/max picks the more conservative — i.e. further-away — of the two candidates)
+
+// ---- Targets (R = entry - stop, distance per unit) -------------------------------
+// TP1 = entry + 1.5R   TP2 = entry + 2.5R   TP3 = entry + 4R   (mirrored for shorts)
+
+// ---- Exit management ---------------------------------------------------------------
+// At TP1: close 50% of the position. Move stop to breakeven (entry price) for
+//         the remainder.
+// At TP2: close another 25% of the ORIGINAL position size (i.e. half of what
+//         remains after TP1). [ASSUMPTION: split beyond "50% at TP1" not
+//         specified in brief; documented split is 50/25/25]
+// At TP3: close all remaining position.
+// Trailing: between TP1 and TP3, the stop trails up to (but never below
+//         breakeven) the most recent confirmed swing low (pivot low, long
+//         case) / swing high (short case).
+
+// ---- Position sizing ---------------------------------------------------------------
+// riskAmount = equity * 0.01
+// size = riskAmount / abs(entry - stop)
