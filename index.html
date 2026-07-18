@@ -319,6 +319,44 @@
       color: var(--gold); font-size: 0.6rem; top: 0.45rem;
     }
 
+    /* ── FREE SEO AUDIT ── */
+    .audit-section { background: var(--deep); }
+
+    .audit-box {
+      max-width: 640px; margin: 0 auto;
+      background: var(--card);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 8px; padding: 3rem 2.5rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+
+    .audit-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .audit-box .section-title,
+    .audit-box .section-desc { position: relative; }
+    .audit-box .section-desc { margin-bottom: 1.75rem; }
+
+    .audit-points {
+      list-style: none; text-align: left;
+      max-width: 380px; margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .audit-points li {
+      font-size: 0.9rem; color: var(--text);
+      padding: 0.4rem 0 0.4rem 1.4rem;
+      position: relative;
+    }
+
+    .audit-points li::before {
+      content: '✦'; position: absolute; left: 0;
+      color: var(--gold); font-size: 0.65rem; top: 0.55rem;
+    }
+
     /* ── LEAD CAPTURE FORM ── */
     .lead-section { background: var(--deep); }
 
@@ -751,6 +789,26 @@
   </div>
 </section>
 
+<!-- FREE SEO AUDIT -->
+<section class="audit-section">
+  <div class="container">
+    <div class="audit-box">
+      <p class="section-eyebrow">Free &middot; No Obligation</p>
+      <h2 class="section-title">Get a Free AI-Powered SEO Audit</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">We'll run your site through the same audit engine we use with clients — technical SEO, Core Web Vitals, schema markup, and AI-search readiness — and send you a scored report with the top fixes.</p>
+
+      <ul class="audit-points">
+        <li>0-100 SEO score with a prioritized action plan</li>
+        <li>Technical, content, schema &amp; local SEO checks</li>
+        <li>Delivered to your inbox within 24 hours</li>
+      </ul>
+
+      <a href="#book" class="btn-primary" onclick="presetAuditInterest()">Get My Free Audit &rarr;</a>
+    </div>
+  </div>
+</section>
+
 <!-- FREE KIT -->
 <section class="kit-section" id="free-kit">
   <div class="container">
@@ -794,7 +852,7 @@
 
       <h2>Book Your Session<br/><span style="color:var(--gold2)">or Grab the Free Kit</span></h2>
       <div class="gold-line"></div>
-      <p>Fill in your details. Manny will reach out within 24 hours to confirm your session or send your free kit — whichever you choose.</p>
+      <p>Fill in your details. Manny will reach out within 24 hours to confirm your session, send your free kit, or deliver your SEO audit — whichever you choose.</p>
 
       <form
         class="lead-form"
@@ -806,15 +864,18 @@
         <input type="email" name="email" placeholder="Your email address" required />
         <input type="tel" name="phone" placeholder="Your phone number (optional)" />
 
-        <select name="interest" required>
+        <select name="interest" id="interest-select" required>
           <option value="" disabled selected>What are you interested in?</option>
           <option value="book-session">Book the $197 1-on-1 session with Manny</option>
           <option value="free-kit">Just the free kits for now</option>
+          <option value="free-audit">Free SEO Audit — send me my site's report</option>
           <option value="automation">AI Automation — save time on workflows</option>
           <option value="seo">SEO — get found on Google</option>
           <option value="social">Social Media — consistent content system</option>
           <option value="web">Web Design — professional site that converts</option>
         </select>
+
+        <input type="url" name="website" id="website-input" placeholder="Your website URL (for the audit)" />
 
         <input type="text" name="business" placeholder="Tell us about your business (optional)" />
 
@@ -826,7 +887,7 @@
 
       <div class="success-box" id="success-box">
         <h3>✦ &nbsp; You're In</h3>
-        <p>Manny will be in touch within 24 hours. Check your inbox — your free kits are on the way.</p>
+        <p>Manny will be in touch within 24 hours. Check your inbox — your free kits or SEO audit are on the way.</p>
       </div>
 
       <p class="form-note">No spam. Your info goes directly to Manny. Unsubscribe anytime.</p>
@@ -1025,6 +1086,11 @@
 </footer>
 
 <script>
+  function presetAuditInterest() {
+    document.getElementById('interest-select').value = 'free-audit';
+    setTimeout(() => document.getElementById('website-input').focus(), 400);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
