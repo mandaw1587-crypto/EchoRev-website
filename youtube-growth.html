@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YouTube Growth — With Manny</title>
+<meta name="description" content="Content systems, editing, and strategy to grow a YouTube channel that converts, from Manny.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%231d1d1f' d='M8 24l12 10 12-18 12 18 12-10-6 26H14z'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .feature-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1rem; }
+  .feature-card{ padding: 1.75rem; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+  .feature-card .explore-icon{ margin-bottom: 1.1rem; }
+  .feature-card h3{ margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .feature-card p{ color: var(--ink-dim); font-size: 0.9rem; line-height: 1.55; }
+  @media (max-width: 860px){ .feature-grid{ grid-template-columns: 1fr; max-width: 420px; margin: 1rem auto 0; } }
+
+  .mockup-thumb{ padding: 12px; }
+  .mockup-thumb .frame{ aspect-ratio: 16/9; border: 1px solid var(--line); border-radius: 4px; background: var(--bg-soft); position: relative; margin-bottom: 8px; }
+  .mockup-thumb .frame .play{ position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .mockup-thumb .frame .play span{ width: 34px; height: 34px; border-radius: 4px; background: #fff; border: 1px solid var(--line-strong); display: flex; align-items: center; justify-content: center; }
+  .mockup-thumb .frame .play svg{ width: 14px; height: 14px; }
+  .mockup-thumb .row{ display: flex; gap: 6px; align-items: center; }
+  .mockup-thumb .row .dot{ width: 22px; height: 22px; border-radius: 4px; background: var(--bg-soft); border: 1px solid var(--line); flex-shrink: 0; }
+  .mockup-thumb .row .lines{ flex: 1; display: grid; gap: 4px; }
+  .mockup-thumb .row .line{ height: 5px; background: var(--bg-soft); border-radius: 2px; }
+  .mockup-thumb .row .line.title{ width: 80%; background: var(--line-strong); }
+  .mockup-thumb .row .line.short{ width: 40%; }
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="container topbar-inner">
+    <a href="index-new.html" class="brand">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#1d1d1f" d="M8 24l12 10 12-18 12 18 12-10-6 26H14z"/></svg>
+      With Manny
+    </a>
+    <div class="topbar-right">
+      <a href="mailto:withmanny1587@gmail.com?subject=Let%27s%20build%20something" class="btn btn-primary btn-sm">Work With Me</a>
+      <button class="menu-trigger" id="menu-trigger" aria-label="Open menu" aria-expanded="false" aria-controls="glass-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="glass-scrim" id="glass-scrim"></div>
+<nav class="glass-panel" id="glass-panel" aria-label="Site navigation">
+  <div class="glass-panel-head">
+    <span class="brand">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#1d1d1f" d="M8 24l12 10 12-18 12 18 12-10-6 26H14z"/></svg>
+      With Manny
+    </span>
+    <button class="glass-close" id="glass-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="glass-nav-group">
+    <div class="glass-nav-label">Explore</div>
+    <a href="index-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Home</a>
+    <a href="services.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.4-3.4a4 4 0 0 1-5.3 5.3L6.4 20.6a2 2 0 0 1-2.8-2.8L12.9 8.5a4 4 0 0 1 5.3-5.3z"/></svg>Services</a>
+    <a href="platform.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Platform</a>
+    <a href="youtube-growth.html" class="is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3l4.6 2.7-4.6 2.7z" fill="currentColor" stroke="none"/></svg>YouTube Growth</a>
+    <a href="resources.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>PDF Library</a>
+    <a href="avatar-calls.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="14" height="12" rx="2"/><path d="M16.5 10.5 21 8v8l-4.5-2.5"/></svg>Avatar Videos &amp; Calls</a>
+  </div>
+  <div class="glass-nav-group">
+    <div class="glass-nav-label">Links</div>
+    <a href="https://mannys-newsletter-bf191f.beehiiv.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Newsletter<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+    <a href="https://stan.store/LUNANOIR" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 7v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7l-3-5z"/><path d="M3 7h18M9 11a3 3 0 0 0 6 0"/></svg>Stan Store<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+    <a href="https://www.youtube.com/channel/UChyejXI8BzsXQ6AT3Obonbg?sub_confirmation=1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3l4.6 2.7-4.6 2.7z" fill="currentColor" stroke="none"/></svg>YouTube Channel<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+    <a href="https://www.tiktok.com/@mannysaisuite" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3v9.4a3.6 3.6 0 1 1-3-3.55"/><path d="M15.5 7.2a4.7 4.7 0 0 0 4 2.3V6.9"/></svg>TikTok<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+  </div>
+  <div class="glass-panel-foot">
+    <a href="mailto:withmanny1587@gmail.com?subject=Let%27s%20build%20something" class="btn btn-primary">Work With Me</a>
+  </div>
+</nav>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">YouTube Growth</span>
+      <h1>Grow a channel that actually converts.</h1>
+      <p class="lede">Content systems, thumbnails, and editing that turn views into subscribers — and subscribers into leads.</p>
+      <div class="hero-actions">
+        <a href="https://www.youtube.com/channel/UChyejXI8BzsXQ6AT3Obonbg?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">Watch the Channel</a>
+        <a href="mailto:withmanny1587@gmail.com?subject=YouTube%20growth%20help" class="btn btn-secondary">Get Growth Help</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section style="padding: 5.5rem 0;">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">What's Included</span>
+        <h2>The system behind consistent growth</h2>
+        <p>Everything I use to plan, produce, and package videos that hold attention.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="explore-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Content Strategy</h3>
+          <p>Topic research and a content calendar built around what your audience actually searches for.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="explore-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3l4.6 2.7-4.6 2.7z" fill="currentColor" stroke="none"/></svg></div>
+          <h3>Titles &amp; Thumbnails</h3>
+          <p>Click-worthy titles and thumbnails tested against what's already working in your niche.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="explore-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l5-3v10l-5-3z"/><rect x="2" y="6" width="13" height="12" rx="2"/></svg></div>
+          <h3>Editing Systems</h3>
+          <p>Repeatable editing templates so every upload looks consistent and professional.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="explore-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></div>
+          <h3>Analytics Review</h3>
+          <p>Regular check-ins on retention, CTR, and what to double down on next.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="explore-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+          <h3>Audience to Leads</h3>
+          <p>Turn viewers into subscribers into leads with the same platform behind my funnels.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="explore-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+          <h3>PDFs for Every Video</h3>
+          <p>Companion guides for select videos, all free in the <a href="resources.html" style="text-decoration:underline;">PDF Library</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 0 5.5rem;">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Watch &amp; Learn</span>
+        <h2>How I build videos, in public</h2>
+      </div>
+      <div class="service-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="service-card reveal">
+          <div class="mockup mockup-thumb">
+            <div class="frame"><div class="play"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></div></div>
+            <div class="row"><div class="dot"></div><div class="lines"><div class="line title"></div><div class="line short"></div></div></div>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="mockup mockup-thumb">
+            <div class="frame"><div class="play"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></div></div>
+            <div class="row"><div class="dot"></div><div class="lines"><div class="line title"></div><div class="line short"></div></div></div>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="mockup mockup-thumb">
+            <div class="frame"><div class="play"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></div></div>
+            <div class="row"><div class="dot"></div><div class="lines"><div class="line title"></div><div class="line short"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: 2.5rem;">
+        <a href="https://www.youtube.com/channel/UChyejXI8BzsXQ6AT3Obonbg?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">Subscribe on YouTube</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#1d1d1f" d="M8 24l12 10 12-18 12 18 12-10-6 26H14z"/></svg>
+      <span>&copy; 2026 With Manny</span>
+    </div>
+    <div class="footer-links">
+      <a href="index-new.html">Home</a>
+      <a href="resources.html">Library</a>
+      <a href="index-new.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
