@@ -78,6 +78,9 @@ before wiring it into the page.
   signups via a `mailto:` fallback to withmanny1587@gmail.com — it is not a real
   mailing list. If Manny connects a real ESP (Mailchimp/ConvertKit/beehiiv/etc.),
   replace the JS handler with a real POST to that provider instead.
+- **HighLevel promo banner** (`.promo` section, "Run your business in one place") has
+  a "Start Free Trial" button with `href="#"` — swap in Manny's real HighLevel
+  affiliate/signup link when he provides it. Don't invent trial terms or pricing.
 - A few Library resources are still invented placeholder titles with `href="#"`
   ("The Automation Starter Kit," "SEO Fundamentals Checklist," "Build Your First AI
   Workflow," "From Idea to App in a Weekend," "Website Launch Checklist," "Tools I
