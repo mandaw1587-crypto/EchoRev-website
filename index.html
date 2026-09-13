@@ -3,361 +3,372 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EchoRev AI Syndicate — Intelligent Solutions for Local Business</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Manny's AI Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#" class="logo">Echo<span>Rev</span></a>
+      <a href="#" class="wordmark"><span>M</span>anny's AI Suite</a>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#process">Process</a></li>
         <li><a href="#results">Results</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact" class="btn btn-sm">Get Started</a></li>
       </ul>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+      <a href="#contact" class="nav-cta">Book a Call</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#services">Services</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#results">Results</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact" class="btn btn-sm">Get Started</a>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="container">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#results">Results</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Book a Call</a>
+      </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="container hero-inner">
-      <div class="badge">AI Syndicate — Built for Local Business</div>
-      <h1>Stop Losing Customers<br />to Businesses Using <span class="gradient-text">AI</span></h1>
-      <p class="hero-sub">
-        EchoRev deploys intelligent automation, AI chatbots, and smart marketing systems
-        that run 24/7 — so you capture every lead, answer every question, and grow faster
-        without hiring more staff.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Book a Free Strategy Call</a>
-        <a href="#services" class="btn btn-ghost">See What We Build →</a>
+  <header class="hero">
+    <div class="container hero-layout">
+      <div class="hero-text">
+        <p class="eyebrow">AI Solutions for Local Business</p>
+        <h1>Your Competitors<br />Are Already<br /><em>Using AI.</em></h1>
+        <p class="hero-body">Manny's AI Suite builds and manages the AI systems local businesses need to capture more leads, automate repetitive work, and grow — without adding headcount.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold">Book a Free Strategy Call</a>
+          <a href="#services" class="btn btn-ghost">See What We Build</a>
+        </div>
       </div>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-num">3x</span><span class="stat-label">Average Lead Increase</span></div>
-        <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">AI Always On</span></div>
-        <div class="stat"><span class="stat-num">60%</span><span class="stat-label">Reduction in Manual Tasks</span></div>
+        <div class="stat-tile">
+          <span class="stat-num">3×</span>
+          <span class="stat-desc">Average increase in leads during month one</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-num">24/7</span>
+          <span class="stat-desc">AI working while you sleep and on weekends</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-num">14 days</span>
+          <span class="stat-desc">From your first call to your AI going live</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-num">60%</span>
+          <span class="stat-desc">Reduction in time spent on repetitive tasks</span>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- SOCIAL PROOF TICKER -->
-  <div class="ticker-bar">
-    <div class="ticker-inner">
-      <span>Restaurants &nbsp;•&nbsp;</span>
-      <span>Law Firms &nbsp;•&nbsp;</span>
-      <span>Real Estate Agencies &nbsp;•&nbsp;</span>
-      <span>Dental Practices &nbsp;•&nbsp;</span>
-      <span>Auto Shops &nbsp;•&nbsp;</span>
-      <span>Retail Stores &nbsp;•&nbsp;</span>
-      <span>Salons &amp; Spas &nbsp;•&nbsp;</span>
-      <span>Contractors &nbsp;•&nbsp;</span>
-      <span>Gyms &amp; Fitness Studios &nbsp;•&nbsp;</span>
-      <span>Medical Clinics &nbsp;•&nbsp;</span>
-      <span>Restaurants &nbsp;•&nbsp;</span>
-      <span>Law Firms &nbsp;•&nbsp;</span>
-      <span>Real Estate Agencies &nbsp;•&nbsp;</span>
-      <span>Dental Practices &nbsp;•&nbsp;</span>
+  <div class="industry-bar">
+    <div class="container industry-inner">
+      <span class="industry-label">Industries served</span>
+      <div class="industry-list">
+        <span>Restaurants</span>
+        <span>Dental Practices</span>
+        <span>Real Estate</span>
+        <span>Auto Repair</span>
+        <span>Law Firms</span>
+        <span>Salons &amp; Spas</span>
+        <span>Gyms</span>
+        <span>Contractors</span>
+        <span>Medical Clinics</span>
+        <span>Retail</span>
+      </div>
     </div>
   </div>
 
-  <!-- SERVICES -->
   <section class="section" id="services">
     <div class="container">
-      <div class="section-header">
-        <div class="badge">What We Build</div>
-        <h2>AI Solutions That <span class="gradient-text">Actually Work</span> for Local Business</h2>
-        <p>No fluff. No complicated tech. Just real systems that bring in more customers and save you time.</p>
-      </div>
+      <header class="section-header">
+        <p class="eyebrow">What We Build</p>
+        <h2>AI systems that run your business<br /><em>behind the scenes</em></h2>
+        <p class="section-sub">Real tools, deployed in days. No technical knowledge required on your end.</p>
+      </header>
       <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🤖</div>
-          <h3>AI Chatbot &amp; Receptionist</h3>
-          <p>Answer questions, book appointments, and qualify leads on your website and social media — 24 hours a day, 7 days a week.</p>
+        <article class="svc-card">
+          <span class="svc-num">01</span>
+          <h3>AI Receptionist &amp; Chatbot</h3>
+          <p>Answer questions, qualify leads, and book appointments on your website and social channels — any hour, any day, without a person on the other end.</p>
           <ul>
-            <li>Instant customer responses</li>
-            <li>Appointment booking automation</li>
-            <li>FAQ handling &amp; lead capture</li>
+            <li>Instant lead capture and response</li>
+            <li>Automated appointment booking</li>
+            <li>Trained on your specific business</li>
           </ul>
-        </div>
-        <div class="service-card featured">
-          <div class="featured-badge">Most Popular</div>
-          <div class="service-icon">⚡</div>
+        </article>
+        <article class="svc-card">
+          <span class="svc-num">02</span>
           <h3>Business Automation Suite</h3>
-          <p>Connect your tools and automate the repetitive work — from follow-up emails to invoice reminders and review requests.</p>
+          <p>Connect your existing tools and eliminate the repetitive work — follow-ups, reminders, review requests, and notifications handled automatically.</p>
           <ul>
             <li>Automated follow-up sequences</li>
-            <li>Review generation campaigns</li>
-            <li>CRM &amp; workflow automation</li>
+            <li>CRM and pipeline automation</li>
+            <li>Workflow triggers and alerts</li>
           </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📈</div>
-          <h3>AI-Powered Marketing</h3>
-          <p>Smart email &amp; SMS campaigns that know when to send, what to say, and who to target — driven by real data.</p>
+        </article>
+        <article class="svc-card">
+          <span class="svc-num">03</span>
+          <h3>Reputation Management</h3>
+          <p>More five-star reviews, automatically. Request, monitor, and respond to reviews across Google, Yelp, and other platforms without lifting a finger.</p>
           <ul>
-            <li>Personalized email campaigns</li>
-            <li>SMS outreach automation</li>
-            <li>Re-engagement sequences</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔍</div>
-          <h3>Reputation Management AI</h3>
-          <p>Monitor, respond to, and grow your online reviews automatically. Your reputation on autopilot.</p>
-          <ul>
-            <li>Automated review requests</li>
-            <li>AI-generated responses</li>
+            <li>Automated review request campaigns</li>
+            <li>AI-drafted response templates</li>
             <li>Multi-platform monitoring</li>
           </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>AI Analytics Dashboard</h3>
-          <p>See exactly what's working. Plain-English insights from your data — no spreadsheet expertise needed.</p>
+        </article>
+        <article class="svc-card">
+          <span class="svc-num">04</span>
+          <h3>AI Marketing Campaigns</h3>
+          <p>Smart email and SMS that knows who to target, what to say, and when to send — powered by your own customer data, not guesswork.</p>
+          <ul>
+            <li>Personalized email and SMS</li>
+            <li>Re-engagement sequences</li>
+            <li>Seasonal and event-based sends</li>
+          </ul>
+        </article>
+        <article class="svc-card">
+          <span class="svc-num">05</span>
+          <h3>Lead Generation Engine</h3>
+          <p>AI-targeted outreach that identifies and contacts potential customers in your area who need your services right now — warm leads handed off to you.</p>
+          <ul>
+            <li>Hyper-local prospect targeting</li>
+            <li>Automated multi-touch outreach</li>
+            <li>Qualified lead handoff to your team</li>
+          </ul>
+        </article>
+        <article class="svc-card">
+          <span class="svc-num">06</span>
+          <h3>Analytics Dashboard</h3>
+          <p>Plain-English insights from your business data. See exactly what's working, where leads come from, and what drives revenue — no spreadsheet degree needed.</p>
           <ul>
             <li>Real-time business metrics</li>
-            <li>Lead source tracking</li>
-            <li>Revenue attribution</li>
+            <li>Lead source attribution</li>
+            <li>Monthly performance reports</li>
           </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🎯</div>
-          <h3>Lead Generation Engine</h3>
-          <p>AI-targeted outreach that identifies and contacts potential customers in your area who need your services right now.</p>
-          <ul>
-            <li>Hyper-local targeting</li>
-            <li>Automated outreach sequences</li>
-            <li>Warm lead handoff to you</li>
-          </ul>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section section-dark" id="how-it-works">
+  <section class="section section-alt" id="process">
     <div class="container">
-      <div class="section-header">
-        <div class="badge">The Process</div>
-        <h2>Up &amp; Running in <span class="gradient-text">14 Days</span></h2>
-        <p>We handle everything. You focus on running your business.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <h3>Strategy Call</h3>
-            <p>We learn your business, identify the biggest opportunities, and map out your custom AI plan. Free, no obligation.</p>
-          </div>
+      <header class="section-header">
+        <p class="eyebrow">The Process</p>
+        <h2>From first call to live AI<br />in <em>14 days</em></h2>
+        <p class="section-sub">We handle everything. Your job is to show up for one onboarding call.</p>
+      </header>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="ps-n">1</span>
+          <h3>Strategy Call</h3>
+          <p>We learn your business, identify the highest-value opportunities, and map your custom AI plan. Free, 30 minutes, no obligation.</p>
         </div>
-        <div class="step-connector"></div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <h3>Custom Build</h3>
-            <p>Our team builds your AI systems — chatbots, automations, campaigns — tailored to your exact business and industry.</p>
-          </div>
+        <div class="process-step">
+          <span class="ps-n">2</span>
+          <h3>Custom Build</h3>
+          <p>Our team builds your AI systems — chatbots, automations, campaigns — tailored specifically to your industry and how your business works.</p>
         </div>
-        <div class="step-connector"></div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <h3>Launch &amp; Train</h3>
-            <p>We go live and walk you through everything. Usually takes less than an hour of your time.</p>
-          </div>
+        <div class="process-step">
+          <span class="ps-n">3</span>
+          <h3>Launch &amp; Train</h3>
+          <p>We go live and walk you through everything in one session. Most clients are fully operational within the first hour.</p>
         </div>
-        <div class="step-connector"></div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <div class="step-content">
-            <h3>Grow &amp; Optimize</h3>
-            <p>We monitor performance, make improvements monthly, and scale what's working. Ongoing partnership.</p>
-          </div>
+        <div class="process-step">
+          <span class="ps-n">4</span>
+          <h3>Ongoing Growth</h3>
+          <p>We monitor, optimize, and expand your AI setup monthly. Your system gets smarter and more effective the longer it runs.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESULTS / TESTIMONIALS -->
   <section class="section" id="results">
     <div class="container">
-      <div class="section-header">
-        <div class="badge">Real Results</div>
-        <h2>What Local Businesses Say <span class="gradient-text">After Going AI</span></h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"We used to miss calls constantly during busy hours. EchoRev set up an AI that handles inquiries around the clock. Our bookings went up 40% in the first month."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">MR</div>
-            <div>
-              <strong>Marcus R.</strong>
-              <span>Auto Repair Shop Owner</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"The review automation alone paid for itself. We went from 47 Google reviews to over 200 in 3 months. Now we're #1 in our area."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">SL</div>
-            <div>
-              <strong>Sandra L.</strong>
-              <span>Dental Practice Manager</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"I was skeptical but the ROI was undeniable. The AI chatbot qualifies leads before I ever talk to them. I only spend time on serious buyers now."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">JT</div>
-            <div>
-              <strong>James T.</strong>
-              <span>Real Estate Agent</span>
-            </div>
-          </div>
-        </div>
+      <header class="section-header">
+        <p class="eyebrow">Client Results</p>
+        <h2>What happens when local businesses<br /><em>go AI-first</em></h2>
+      </header>
+      <div class="testimonials">
+        <blockquote class="tquote">
+          <div class="tq-mark">&ldquo;</div>
+          <p>We were missing calls constantly during rush hours. The AI receptionist handles all inquiries now — 24/7. Bookings went up 40% in the first month without hiring anyone new.</p>
+          <footer>
+            <strong>Marcus R.</strong>
+            <span>Owner — Auto Repair Shop, Dallas TX</span>
+          </footer>
+        </blockquote>
+        <blockquote class="tquote">
+          <div class="tq-mark">&ldquo;</div>
+          <p>We went from 47 Google reviews to over 200 in three months. We're now ranked number one in our area. The review automation alone more than paid for the entire service.</p>
+          <footer>
+            <strong>Sandra L.</strong>
+            <span>Practice Manager — Dental Clinic, Houston TX</span>
+          </footer>
+        </blockquote>
+        <blockquote class="tquote">
+          <div class="tq-mark">&ldquo;</div>
+          <p>The AI qualifies every lead before I ever speak to them. I spend zero time on tire-kickers. My close rate went from 20% to over 50% because I'm only talking to serious buyers.</p>
+          <footer>
+            <strong>James T.</strong>
+            <span>Real Estate Agent — Austin TX</span>
+          </footer>
+        </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="section section-dark" id="pricing">
+  <section class="section section-alt" id="pricing">
     <div class="container">
-      <div class="section-header">
-        <div class="badge">Simple Pricing</div>
-        <h2>Choose Your <span class="gradient-text">AI Power Level</span></h2>
-        <p>No long-term contracts. Cancel any time. Real results or we make it right.</p>
-      </div>
+      <header class="section-header">
+        <p class="eyebrow">Pricing</p>
+        <h2>Simple pricing,<br /><em>no long-term contracts.</em></h2>
+        <p class="section-sub">Cancel any time. Real results or we make it right.</p>
+      </header>
       <div class="pricing-grid">
-        <div class="pricing-card">
+        <div class="plan">
           <h3>Starter</h3>
-          <div class="price"><span class="price-num">$497</span><span class="price-per">/mo</span></div>
-          <p class="price-desc">Perfect for businesses ready to dip into AI automation.</p>
-          <ul class="price-features">
-            <li>✅ AI Chatbot (Website)</li>
-            <li>✅ Automated Review Requests</li>
-            <li>✅ Monthly Email Campaign</li>
-            <li>✅ Basic Analytics Dashboard</li>
-            <li>✅ Email Support</li>
+          <div class="plan-price">$497<span>/mo</span></div>
+          <p class="plan-desc">For businesses getting started with AI for the first time.</p>
+          <ul class="plan-list">
+            <li>AI chatbot for your website</li>
+            <li>Automated review requests</li>
+            <li>Monthly email campaign</li>
+            <li>Analytics dashboard</li>
+            <li>Email support</li>
           </ul>
-          <a href="#contact" class="btn btn-ghost">Get Started</a>
+          <a href="#contact" class="btn btn-ghost btn-block">Get Started</a>
         </div>
-        <div class="pricing-card featured">
-          <div class="featured-badge">Best Value</div>
+        <div class="plan plan-featured">
+          <div class="plan-best">Most Popular</div>
           <h3>Growth</h3>
-          <div class="price"><span class="price-num">$997</span><span class="price-per">/mo</span></div>
-          <p class="price-desc">The full AI stack for businesses serious about scaling.</p>
-          <ul class="price-features">
-            <li>✅ Everything in Starter</li>
-            <li>✅ Business Automation Suite</li>
-            <li>✅ AI Lead Generation</li>
-            <li>✅ SMS + Email Campaigns</li>
-            <li>✅ Reputation Management AI</li>
-            <li>✅ Priority Support + Monthly Call</li>
+          <div class="plan-price">$997<span>/mo</span></div>
+          <p class="plan-desc">The complete AI stack for businesses serious about scaling.</p>
+          <ul class="plan-list">
+            <li>Everything in Starter</li>
+            <li>Full automation suite</li>
+            <li>AI lead generation</li>
+            <li>SMS + email campaigns</li>
+            <li>Reputation management AI</li>
+            <li>Priority support + monthly call</li>
           </ul>
-          <a href="#contact" class="btn btn-primary">Get Started</a>
+          <a href="#contact" class="btn btn-gold btn-block">Get Started</a>
         </div>
-        <div class="pricing-card">
-          <h3>Syndicate</h3>
-          <div class="price"><span class="price-num">Custom</span></div>
-          <p class="price-desc">Multi-location businesses and agencies. White-label available.</p>
-          <ul class="price-features">
-            <li>✅ Everything in Growth</li>
-            <li>✅ Multi-location Management</li>
-            <li>✅ White-label Options</li>
-            <li>✅ Custom AI Integrations</li>
-            <li>✅ Dedicated Account Manager</li>
-            <li>✅ Weekly Strategy Sessions</li>
+        <div class="plan">
+          <h3>Agency</h3>
+          <div class="plan-price plan-custom">Custom</div>
+          <p class="plan-desc">Multi-location businesses, franchises, and white-label agencies.</p>
+          <ul class="plan-list">
+            <li>Everything in Growth</li>
+            <li>Multi-location management</li>
+            <li>White-label options</li>
+            <li>Custom AI integrations</li>
+            <li>Dedicated account manager</li>
+            <li>Weekly strategy sessions</li>
           </ul>
-          <a href="#contact" class="btn btn-ghost">Contact Us</a>
+          <a href="#contact" class="btn btn-ghost btn-block">Contact Us</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA / CONTACT -->
-  <section class="section cta-section" id="contact">
+  <section class="section" id="contact">
     <div class="container">
-      <div class="cta-box">
-        <div class="badge">Let's Talk</div>
-        <h2>Ready to Put AI to Work<br />for Your Business?</h2>
-        <p>Book a free 30-minute strategy call. We'll show you exactly what AI can do for your specific business — no tech knowledge required.</p>
-        <form class="contact-form" id="contactForm">
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">Book a Call</p>
+          <h2>Let's talk about what AI can do for <em>your business.</em></h2>
+          <p>Free 30-minute strategy call. I'll show you exactly what we'd build for you — no tech knowledge required, no pressure, no obligation.</p>
+          <ul class="contact-promises">
+            <li>Response within 1 business hour</li>
+            <li>No long-term contracts required</li>
+            <li>Results guaranteed or we make it right</li>
+          </ul>
+        </div>
+        <form class="cform" id="contactForm" novalidate>
           <div class="form-row">
-            <input type="text" placeholder="Your Name" name="name" required />
-            <input type="text" placeholder="Business Name" name="business" required />
+            <div class="field">
+              <label for="fname">Your Name</label>
+              <input id="fname" type="text" name="name" placeholder="John Smith" required />
+            </div>
+            <div class="field">
+              <label for="fbiz">Business Name</label>
+              <input id="fbiz" type="text" name="business" placeholder="Smith's Auto Repair" required />
+            </div>
           </div>
           <div class="form-row">
-            <input type="email" placeholder="Email Address" name="email" required />
-            <input type="tel" placeholder="Phone Number" name="phone" />
+            <div class="field">
+              <label for="femail">Email Address</label>
+              <input id="femail" type="email" name="email" placeholder="john@business.com" required />
+            </div>
+            <div class="field">
+              <label for="fphone">Phone <span class="opt">(optional)</span></label>
+              <input id="fphone" type="tel" name="phone" placeholder="(555) 000-0000" />
+            </div>
           </div>
-          <select name="industry" required>
-            <option value="" disabled selected>Select Your Industry</option>
-            <option>Restaurant / Food Service</option>
-            <option>Dental / Medical</option>
-            <option>Real Estate</option>
-            <option>Auto Repair / Dealership</option>
-            <option>Legal Services</option>
-            <option>Salon / Spa / Beauty</option>
-            <option>Gym / Fitness</option>
-            <option>Retail / E-commerce</option>
-            <option>Construction / Contractors</option>
-            <option>Other</option>
-          </select>
-          <textarea placeholder="What's your biggest business challenge right now? (optional)" name="message" rows="3"></textarea>
-          <button type="submit" class="btn btn-primary btn-full">Book My Free Strategy Call →</button>
+          <div class="field">
+            <label for="findustry">Industry</label>
+            <select id="findustry" name="industry" required>
+              <option value="" disabled selected>Select your industry</option>
+              <option>Restaurant / Food Service</option>
+              <option>Dental / Medical</option>
+              <option>Real Estate</option>
+              <option>Auto Repair / Dealership</option>
+              <option>Legal Services</option>
+              <option>Salon / Spa / Beauty</option>
+              <option>Gym / Fitness</option>
+              <option>Retail</option>
+              <option>Construction / Contractors</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fmsg">Biggest challenge right now <span class="opt">(optional)</span></label>
+            <textarea id="fmsg" name="message" rows="3" placeholder="e.g. We miss too many leads after hours, or we struggle with follow-up…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Book My Free Strategy Call →</button>
+          <p class="form-note">We respond within 1 business hour. No spam, ever.</p>
         </form>
-        <p class="form-note">We respond within 1 business hour. No spam, ever.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-inner">
+    <div class="container footer-layout">
       <div class="footer-brand">
-        <a href="#" class="logo">Echo<span>Rev</span></a>
-        <p>AI solutions built for the businesses that keep our communities running.</p>
+        <a href="#" class="wordmark"><span>M</span>anny's AI Suite</a>
+        <p>AI solutions built for the businesses<br />that keep our communities running.</p>
       </div>
-      <div class="footer-links">
-        <div>
+      <nav class="footer-links">
+        <div class="flink-group">
           <strong>Services</strong>
-          <a href="#services">AI Chatbot</a>
+          <a href="#services">AI Receptionist</a>
           <a href="#services">Automation</a>
           <a href="#services">Marketing AI</a>
-          <a href="#services">Reputation</a>
+          <a href="#services">Lead Generation</a>
         </div>
-        <div>
+        <div class="flink-group">
           <strong>Company</strong>
-          <a href="#how-it-works">How It Works</a>
+          <a href="#process">Our Process</a>
           <a href="#results">Results</a>
           <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
         </div>
-      </div>
+      </nav>
     </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2026 EchoRev AI Syndicate. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></p>
+    <div class="footer-base">
+      <div class="container footer-base-inner">
+        <p>© 2026 Manny's AI Suite. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>

@@ -1,45 +1,32 @@
-// Mobile menu toggle
+// Mobile nav
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
 menuToggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
+  const open = mobileMenu.classList.toggle('open');
+  mobileMenu.setAttribute('aria-hidden', String(!open));
+  menuToggle.setAttribute('aria-expanded', String(open));
 });
 
-// Close mobile menu on link click
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
 });
 
-// Contact form submission
+// Form
 document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault();
   const btn = this.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-  btn.textContent = 'Sending...';
+  btn.textContent = 'Sending…';
   btn.disabled = true;
 
-  // Simulate submission — replace with real endpoint / EmailJS / Formspree
+  // Replace with Formspree, EmailJS, or your own endpoint
   setTimeout(() => {
-    btn.textContent = '✅ Request Sent! We\'ll be in touch soon.';
-    btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+    btn.textContent = 'Request sent — we\'ll be in touch shortly.';
+    btn.style.cssText = 'background:#10b981;border-color:#10b981;color:#fff;';
     this.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
   }, 1200);
-});
-
-// Smooth reveal on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.service-card, .testimonial-card, .pricing-card, .step').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(24px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
 });
